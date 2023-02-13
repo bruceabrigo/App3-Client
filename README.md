@@ -45,6 +45,8 @@ BONUS
 
 1. User Schema
 
+```.js
+
 const userSchema = new mongoose.Schema(
   {
     profilePicture: {
@@ -91,9 +93,12 @@ const userSchema = new mongoose.Schema(
       toJSON: { virtuals: true }
   }
 )
+```
 
 
 2. Content Schema
+
+```.js
 
 const contentSchema = new mongoose.Schema(
   {
@@ -116,3 +121,4 @@ const contentSchema = new mongoose.Schema(
 
   }, {timestamps: true}
 )
+```
