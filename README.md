@@ -1,12 +1,14 @@
  
+=======
 # SOCIAL MEDIA APP
-##### BRE-CRYPT
+##### HEAD
 
 
 # User Story
 - This is a Social Media Application
-
-By: Rita, Enoch, and Bruce
+=======
+BRE-Crypt
+By; Rita, Enoch, and Bruce
 
 Welcome to the GenZ era of Social Media. 
 Our Social media app facilitates users to do the following on our website:
@@ -42,6 +44,7 @@ BONUS
 1) Website Landing Screen 
 (i) Login or Signup
 
+=======
 1) Website Landing Screen
 Login
   - Initial landing page will prompt a retuning user to Log-In or Sign Up
@@ -53,6 +56,7 @@ Sign Up
 
 
 2) Home Screen
+
 
 
 Main Page of Social Media App
@@ -70,4 +74,5 @@ Direct Message Feature
 ![Alt text](img/App3-API.jpeg)
 
 
-
+###### upstream/main
+###### main
