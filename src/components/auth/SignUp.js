@@ -8,6 +8,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+
 const SignUp = (props) => {
 	// constructor(props) {
 	// 	super(props)
