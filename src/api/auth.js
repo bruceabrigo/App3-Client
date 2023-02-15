@@ -1,6 +1,9 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
+// Making calls to Backend - API Calls
+
+//--------------------- SIGN UP --------------------
 export const signUp = (credentials) => {
 	return axios({
 		method: 'POST',
@@ -10,6 +13,12 @@ export const signUp = (credentials) => {
 				email: credentials.email,
 				password: credentials.password,
 				password_confirmation: credentials.passwordConfirmation,
+				name: credentials.name,
+				profilePicture: credentials.profilePicture,
+				coverPicture: credentials.coverPicture,
+				description: credentials.description,
+				active: credentials.active
+
 			},
 		},
 	})
@@ -49,6 +58,7 @@ export const changePassword = (passwords, user) => {
 			passwords: {
 				old: passwords.oldPassword,
 				new: passwords.newPassword,
+				
 			},
 		},
 	})

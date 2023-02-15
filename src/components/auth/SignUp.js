@@ -9,43 +9,40 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const SignUp = (props) => {
-	// SETTING UP USE STATE FOR EACH ITEM  
+    // Seeting up Initial stage for each credential
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
+    const [name, setName] = useState('')
     const [profilePicture, setProfilePicture] = useState('')
     const [coverPicture, setCoverPicture] = useState('')
-    const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const [city, setCity] = useState('')
-    const [active, setactive] =  useState('')
-
-
-
+    const [active, setActive] = useState(false)
 
     const navigate = useNavigate()
 
+    // ACTION TO BE PERFORMED ON SIGN-UP
 	const onSignUp = (event) => {
 		event.preventDefault()
 
 		const { msgAlert, setUser } = props
 
-        const credentials = {email, password, passwordConfirmation, name, description, profilePicture,
-            coverPicture, city
-        }
+        const credentials = {email, password, passwordConfirmation, name,
+            profilePicture, coverPicture, description, active }
 
+        // How the credentials have to be handled
 		signUp(credentials)
 			.then(() => signIn(credentials))
 			.then((res) => setUser(res.data.user))
 			.then(() =>
+                
 				msgAlert({
 					heading: 'Sign Up Success',
 					message: messages.signUpSuccess,
 					variant: 'success',
 				})
 			)
-            // Then Navigate to a path
-			.then(() => navigate('/sign-in'))
+			.then(() => navigate('/'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')
@@ -64,34 +61,8 @@ const SignUp = (props) => {
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
-
-                <Form.Group controlId='name'>
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control
-                            required
-                            type='name'
-                            name='name'
-                            value={name}
-                            placeholder='Enter name'
-                            onChange={e => setName(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group controlId='description'>
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control
-                            required
-                            type='description'
-                            name='description'
-                            value={description}
-                            placeholder='Description yourself'
-                            onChange={e => setDescription(e.target.value)}
-                        />
-                    </Form.Group>
-
-
                     <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label>*Email address</Form.Label>
                         <Form.Control
                             required
                             type='email'
@@ -102,8 +73,33 @@ const SignUp = (props) => {
                         />
                     </Form.Group>
 
+                    <Form.Group controlId='name'>
+                        <Form.Label>*Name</Form.Label>
+                        <Form.Control
+                            required
+                            type='name'
+                            name='name'
+                            value={name}
+                            placeholder='name'
+                            onChange={e => setName(e.target.value)}
+                        />
+                    </Form.Group>
+
+                    <Form.Group controlId='description'>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control
+                            
+                            type='description'
+                            name='description'
+                            value={description}
+                            placeholder='description'
+                            onChange={e => setDescription(e.target.value)}
+                        />
+                    </Form.Group>
+
+
                     <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label>*Password</Form.Label>
                         <Form.Control
                             required
                             name='password'
@@ -114,7 +110,7 @@ const SignUp = (props) => {
                         />
                     </Form.Group>
                     <Form.Group controlId='passwordConfirmation'>
-                        <Form.Label>Password Confirmation</Form.Label>
+                        <Form.Label>*Password Confirmation</Form.Label>
                         <Form.Control
                             required
                             name='passwordConfirmation'
@@ -128,10 +124,11 @@ const SignUp = (props) => {
                     <Form.Group controlId='profilePicture'>
                         <Form.Label>Profile Picture</Form.Label>
                         <Form.Control
+                            
                             type='profilePicture'
                             name='profilePicture'
                             value={profilePicture}
-                            placeholder='Add your photo'
+                            placeholder='profilePicture'
                             onChange={e => setProfilePicture(e.target.value)}
                         />
                     </Form.Group>
@@ -139,22 +136,12 @@ const SignUp = (props) => {
                     <Form.Group controlId='coverPicture'>
                         <Form.Label>Cover Picture</Form.Label>
                         <Form.Control
+                            
                             type='coverPicture'
                             name='coverPicture'
                             value={coverPicture}
-                            placeholder='Add your photo'
+                            placeholder='coverPicture'
                             onChange={e => setCoverPicture(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group controlId='city'>
-                        <Form.Label>City</Form.Label>
-                        <Form.Control
-                            type='city'
-                            name='city'
-                            value={city}
-                            placeholder='Enter your city'
-                            onChange={e => setCity(e.target.value)}
                         />
                     </Form.Group>
 
@@ -167,5 +154,7 @@ const SignUp = (props) => {
     )
 
 }
+
+
 
 export default SignUp
