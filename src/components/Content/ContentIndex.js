@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { Card, Container, Button } from "react-bootstrap"
+import { Card, Container, Button} from "react-bootstrap"
 import { Link } from "react-router-dom"
 import LoadingScreen from '../shared/LoadingScreen'
 
@@ -22,7 +22,7 @@ const ContentIndex = (props) => {
 
     useEffect(() => {
         getAllContent()
-            .then(res => setContent(res.data.contents))
+            .then(res => setContent(res.data.contents)) // this retrieves all content from the axios response, and sets state in SetContent to the content data
             .catch(err => {
                 msgAlert({
                     heading: 'Error with content',
@@ -47,15 +47,19 @@ const ContentIndex = (props) => {
         <Card key={content._id} className='mb-4'>
             <Card.Body>
                     {/* Username will go here */}
-                <Card.Title>Username</Card.Title>
+                <Card.Title>Username </Card.Title>
                 <Card.Subtitle className='mb-2 text-muted'>{content.createdAt}</Card.Subtitle>
                 <Card.Text className='border-bottom'>
-                    <p>{content.material}</p>
+                    {content.material}
                 </Card.Text>
                 <Card.Text className='border-bottom'>
                     <div className='d-flex justify-content-around'>
                         <div className='p-2'>Like</div>
                         <div className='p-2'>Comment</div>
+                    </div>
+                </Card.Text>
+                <Card.Text className='border-bottom'>
+                    <div className='d-flex justify-content-around'>
                     </div>
                 </Card.Text>
             </Card.Body>
