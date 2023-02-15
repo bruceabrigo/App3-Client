@@ -24,6 +24,7 @@ export const signUp = (credentials) => {
 	})
 }
 
+//--------------------- SIGN IN --------------------
 export const signIn = (credentials) => {
 	return axios({
 		url: apiUrl + '/sign-in',
@@ -37,6 +38,7 @@ export const signIn = (credentials) => {
 	})
 }
 
+//--------------------- SIGN OUT --------------------
 export const signOut = (user) => {
 	return axios({
 		url: apiUrl + '/sign-out',
@@ -47,6 +49,13 @@ export const signOut = (user) => {
 	})
 }
 
+//--------------------- USER PROFILE --------------------
+
+export const userProfile = (id) => {
+	return axios(`${apiUrl}/${id}`)
+}
+
+//--------------------- CHANGE PASSWORD --------------------
 export const changePassword = (passwords, user) => {
 	return axios({
 		url: apiUrl + '/change-password',
