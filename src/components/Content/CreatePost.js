@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { newPost } from '../../api/content'
 import { newPostSuccess, newPostFailure } from '../shared/AutoDismissAlert/messages'
 import ContentForm from '../shared/NewPostForm'
+import { Card, Container, } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 
 const NewPost = (props) => {
@@ -51,12 +53,27 @@ const NewPost = (props) => {
                 })
             })
     }
-    return (
+
+    const createCard = (
+		<Card className="mt-4">
+			<Card.Header>
+				<h2>Welcome Back</h2>
+			</Card.Header>
+			<Card.Body>
             <ContentForm
                 content={content}
                 handleChange={onChange}
                 handleSubmit={onSubmit}
             />
+			</Card.Body>
+		</Card>
+	)
+    return (
+        <>
+            <Container>
+                {createCard}
+            </Container>
+        </>
     )
 }
 

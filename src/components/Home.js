@@ -31,7 +31,7 @@ const Home = (props) => {
 		</Container>
 		{/* Content Cards */}
 		<Container className="mt-5">
-			<ContentIndex msgAlert={props.msgAlert}/>
+			<ContentIndex user={user} msgAlert={props.msgAlert}/>
 		</Container>
 		</>
 	)
