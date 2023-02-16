@@ -11,6 +11,7 @@ import Home from './components/Home'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
+import Update from './components/auth/Update'
 import ChangePassword from './components/auth/ChangePassword'
 // Import ShowProfile
 import ShowProfile from './components/auth/ShowProfile' 
@@ -69,6 +70,12 @@ const App = () => {
 							path='/:userId'
 							element={<ShowProfile user={user} />}
 						/>
+
+						<Route
+							path='/update/:userId'
+							element={<Update user={user} />}
+						/>
+
 						<Route
 							path='/change-password'
 							element={
@@ -91,5 +98,4 @@ const App = () => {
 			</Fragment>
 		)
 }
-
 export default App

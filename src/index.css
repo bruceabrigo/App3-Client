@@ -11,7 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#coverPicture{
-  height: 300px;
-  max-width: 50px;
+#imagecover{
+  max-height: 20rem;
+  max-width: 90rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

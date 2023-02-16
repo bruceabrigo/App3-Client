@@ -49,11 +49,37 @@ export const signOut = (user) => {
 	})
 }
 
-//--------------------- USER PROFILE --------------------
+//--------------------- SHOW ONE USER PROFILE --------------------
 
 export const userProfile = (id) => {
-	return axios(`${apiUrl}/${id}`)
+	return axios(`${apiUrl}/user/${id}`)
 }
+
+//--------------------- UPDATE PROFILE --------------------
+
+// export const updateProfile = (user, userId, updatedUser) => {
+// 	return axios({
+// 		url: `${apiUrl}/update/`,
+// 		method: 'PATCH',
+// 		headers: {
+// 			Authorization: `Token token=${user.token}`,
+// 		},
+// 		data: { user: updatedUser }
+// 	})
+// } 
+
+export const updateProfile = (user, updatedUser) => {
+	console.log(`---updatedProfile API --- userId`,updatedUser.id)
+	return axios({
+	  url: `${apiUrl}/update/${updatedUser.id}`, // Include userId in the URL
+	  method: 'PATCH',
+	  headers: {
+		Authorization: `Token token=${user.token}`,
+	  },
+	  data: { credentials: updatedUser } // Use the correct key for the updated user object
+	})
+  }
+  
 
 //--------------------- CHANGE PASSWORD --------------------
 export const changePassword = (passwords, user) => {
