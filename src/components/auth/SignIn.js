@@ -44,6 +44,7 @@ const SignIn = (props) => {
 				})
 			)
 			.then(() => navigate('/:userId'))
+            // .then(()=> navigate('/update'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')

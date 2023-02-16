@@ -69,9 +69,9 @@ export const userProfile = (id) => {
 // } 
 
 export const updateProfile = (user, updatedUser) => {
-	console.log(`---updatedProfile API --- userId`,updatedUser.id)
+	console.log(`---updatedProfile API --- userId`,updatedUser._id)
 	return axios({
-	  url: `${apiUrl}/update/${updatedUser.id}`, // Include userId in the URL
+	  url: `${apiUrl}/update/${updatedUser._id}`, // Include userId in the URL
 	  method: 'PATCH',
 	  headers: {
 		Authorization: `Token token=${user.token}`,

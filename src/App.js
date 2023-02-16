@@ -68,12 +68,25 @@ const App = () => {
 
 						<Route
 							path='/:userId'
-							element={<ShowProfile user={user} />}
+							element={
+							<RequireAuth user={user}>
+								<ShowProfile user={user} />
+							</RequireAuth>
+						}
 						/>
+
+						{/* <Route
+							path='/update/:userId'
+							element={<Update user={user} />}
+						/> */}
 
 						<Route
 							path='/update/:userId'
-							element={<Update user={user} />}
+							element={
+							<RequireAuth user={user}>
+								<Update msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
 						/>
 
 						<Route

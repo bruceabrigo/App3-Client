@@ -4,7 +4,10 @@ import { userProfile } from '../../api/auth'
 import { useState, useEffect } from 'react'
 import { Card, Container, Button } from "react-bootstrap"
 import LoadingScreen from '../shared/LoadingScreen'
+import { Link } from 'react-router-dom'
+
 import ListGroup from 'react-bootstrap/ListGroup'
+// import Update from './Update'
 
 
 const ShowProfile = (props) => {
@@ -17,6 +20,7 @@ const ShowProfile = (props) => {
         return <p> <LoadingScreen /> </p>
     }
     
+// 
   
   
     return (
@@ -40,9 +44,13 @@ const ShowProfile = (props) => {
         <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-      <Card.Link href={`/update/${user._id}`}><Button>Update Details</Button></Card.Link>
+
+      <Link to={`/update/${user._id}`}>Update Details</Link> <br />
         <Card.Link href="#">Another Link</Card.Link>
       </Card.Body>
+
+      {/* <Update user={user}/> */}
+     
     </Card>
     </Card>
       

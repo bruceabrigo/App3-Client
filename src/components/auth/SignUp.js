@@ -8,6 +8,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+
 const SignUp = (props) => {
     // Seeting up Initial stage for each credential
     const [email, setEmail] = useState('')
@@ -43,6 +44,7 @@ const SignUp = (props) => {
 				})
 			)
 			.then(() => navigate('/:userId'))
+            // .then(() => navigate('/update'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')
@@ -61,6 +63,7 @@ const SignUp = (props) => {
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
+                    
                     <Form.Group controlId='email'>
                         <Form.Label>*Email address</Form.Label>
                         <Form.Control
@@ -150,6 +153,7 @@ const SignUp = (props) => {
                     </Button>
                 </Form>
             </div>
+            
         </div>
     )
 
