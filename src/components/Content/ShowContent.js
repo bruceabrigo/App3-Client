@@ -62,7 +62,7 @@ const ShowContent = (props) => {
         <>
             <Container className="mt-5">
                 <Card>
-                    <Card.Header></Card.Header>
+                    <Card.Header>Content</Card.Header>
                         <Card.Body>
                             {/* {content} */}
                         </Card.Body>

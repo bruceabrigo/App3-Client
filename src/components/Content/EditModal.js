@@ -4,7 +4,7 @@ import ContentForm from "../shared/NewPostForm";
 import messages from "../shared/AutoDismissAlert/messages";
 
 const EditModal = (props) => {
-    const {user, show, handleClose, editPost, msgAlert, triggerRefresh} = props
+    const {user, show, handleClose, editPost, msgAlert} = props
     console.log('props in edit: ', props)
 
     const [content, setContent] = useState(props.content)
