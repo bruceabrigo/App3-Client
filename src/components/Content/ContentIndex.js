@@ -7,11 +7,6 @@ import { getAllContent } from '../../api/content'
 
 import messages from '../shared/AutoDismissAlert/messages'
 
-const styleCards = {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'center'
-}
 
 const ContentIndex = (props) => {
     const [content, setContent] = useState(null) // while no content: state = null | after response: setState = content data from axios call
@@ -47,7 +42,7 @@ const ContentIndex = (props) => {
         <Card key={content._id} className='mb-4'>
             <Card.Body>
                     {/* Username will go here */}
-                <Card.Title>Username </Card.Title>
+                <Card.Title>{user.email} </Card.Title>
                 <Card.Subtitle className='mb-2 text-muted'>{content.createdAt}</Card.Subtitle>
                 <Card.Text className='border-bottom'>
                     {content.material}

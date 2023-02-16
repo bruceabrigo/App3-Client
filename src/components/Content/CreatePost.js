@@ -1,0 +1,63 @@
+import { useState } from 'react'
+import { newPost } from '../../api/content'
+import { newPostSuccess, newPostFailure } from '../shared/AutoDismissAlert/messages'
+import ContentForm from '../shared/NewPostForm'
+import { useNavigate } from 'react-router-dom'
+
+const NewPost = (props) => {
+    const {user, msgAlert} = props
+    console.log('User in Create: ', user)
+
+    const nav = useNavigate()
+
+    const [content, setContent] = useState({material: ''})
+
+    const onChange = (e) => {
+        e.persist()
+
+        setContent(prevContent => {
+            const newMaterial = e.target.name //input field = key value pair to manipulate
+            let newValue = e.target.value
+
+            console.log('input: ', e.target.type)
+
+            const updatedContent = {
+                [newMaterial] : newValue
+            }
+
+            return {
+                ...prevContent, ...updatedContent
+            }
+        })
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        newPost(user, content)
+            .then(res => {nav(`/`)})
+            .then(() => {
+                msgAlert({
+                    heading: 'Success with new Content',
+                    message: newPostSuccess,
+                    variant: 'success'
+                })
+            })
+            .catch(() => {
+                msgAlert({
+                    heading: 'Error posting content...',
+                    message: newPostFailure,
+                    variant: 'danger'
+                })
+            })
+    }
+    return (
+            <ContentForm
+                content={content}
+                handleChange={onChange}
+                handleSubmit={onSubmit}
+            />
+    )
+}
+
+export default NewPost
