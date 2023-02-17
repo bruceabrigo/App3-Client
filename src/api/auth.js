@@ -55,6 +55,11 @@ export const userProfile = (id) => {
 	return axios(`${apiUrl}/user/${id}`)
 }
 
+//--------------------- INDEX USERS  --------------------
+
+export const allUser = () => {
+    return axios(`${apiUrl}/users`)
+}
 //--------------------- UPDATE PROFILE --------------------
 
 // export const updateProfile = (user, userId, updatedUser) => {

@@ -6,18 +6,26 @@ import axios from 'axios'
 //=============================== SHOW ONE FOLLOW Cart ===================================
 
 
-export const userFollowCart = (id, fcart) => {
+// export const userFollowCart = (id, fcart) => {
+//     return axios({
+//         method:'GET',
+//         url: `${apiUrl}/follow/owner/${id}`,
+//         data: { fcart: fcart}
+//     })
+// } 
+
+export const userFollowCart = (fcart, id)=> {
     return axios({
-        method:'GET',
+        method: 'GET',
         url: `${apiUrl}/follow/owner/${id}`,
-        data: { fcart: fcart}
+        data: {fcart: fcart}
     })
-} 
+}
 
 //================ ADDING PEOPLE AS MY FOLLOWERS ===================================
-export const followMe = (fcart, user, anUserId) => {
+export const followers = (fcart, user, anUserId) => {
     return axios({
-      url: `${apiUrl}/follow/${user}/${anUserId}`,
+      url: `${apiUrl}/follow/followers/${user}/${anUserId}`,
       method: 'GET',
       data: { fcart: fcart}
     });
@@ -25,9 +33,9 @@ export const followMe = (fcart, user, anUserId) => {
 
 //====================== FOLLOW OTHERS =============
 
-  export const followOthers = (fcart, user, anUserId) => {
+  export const followings = (fcart, user, anUserId) => {
     return axios({
-        url: `${apiUrl}/${user}/${anUserId}`,
+        url: `${apiUrl}/follow/${user}/${anUserId}`,
         method: 'GET',
         data: { fcart: fcart}
     })

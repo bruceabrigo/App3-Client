@@ -16,6 +16,7 @@ import ChangePassword from './components/auth/ChangePassword'
 
 // Import ShowProfile
 import ShowProfile from './components/auth/ShowProfile' 
+import AllUsers from './components/auth/AllUsers'
 
 
 //------------------ BRUCE----------------- (21,22, 114 and below-2 routes)
@@ -23,6 +24,7 @@ import NewPost from './components/Content/CreatePost'
 import ShowContent from './components/Content/ShowContent'
 import Profile2 from './components/auth/Profile2'
 import ShowCart from './components/FollowCart.js/ShowCart'
+
 
 
 
@@ -88,6 +90,20 @@ const App = () => {
 						/>
 
 						<Route
+							path='/users'
+							element={
+							<RequireAuth user={user}>
+								<AllUsers 
+								user={user}
+								setUser={setUser}
+								// triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
+							</RequireAuth>
+						}
+						/>
+
+
+						<Route
 							path='/profile'
 							element={
 							<RequireAuth user={user}>
@@ -128,7 +144,7 @@ const App = () => {
 						/>
 
 						<Route
-							path='/follow/:userId'
+							path='/followers/:userId'
 							element={
 							
 								<ShowCart 

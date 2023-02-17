@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, Button} from 'react-bootstrap'
 
 import { useParams } from 'react-router-dom'
-import { userFollowCart, followMe } from '../../api/followCart'
+import {  userFollowCart,followers, followings } from '../../api/followCart'
 import { useState } from 'react'
 
 
@@ -10,16 +10,17 @@ function ShowCart(props) {
 
     const { user} = props
     console.log(`Show Cart Props`, props)
-    const { userId, anUserId } = useParams()
+    const { userId } = useParams()
     const [fcart, setFCart] = useState({
         owner: '',
         followers: [],
         followings: []
   })
 
+  
 
     // Make axios call
-    followMe(userId, anUserId)
+    userFollowCart(fcart, userId)
         .then((res)=> console.log(`This is res in folloeCart`,res))
         
 
