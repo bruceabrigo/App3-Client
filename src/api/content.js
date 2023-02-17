@@ -48,5 +48,5 @@ export const deletePost = (user, contentId) => {
 
 }
 
-}
+
 

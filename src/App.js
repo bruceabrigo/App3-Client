@@ -21,10 +21,11 @@ import ShowProfile from './components/auth/ShowProfile'
 //------------------ BRUCE----------------- (21,22, 114 and below-2 routes)
 import NewPost from './components/Content/CreatePost'
 import ShowContent from './components/Content/ShowContent'
+import Profile2 from './components/auth/Profile2'
 
-=======
-import NewPost from './components/Content/CreatePost'
-import ShowContent from './components/Content/ShowContent'
+
+
+
 
 
 const App = () => {
@@ -67,7 +68,7 @@ const App = () => {
 						/>
 						<Route
 							path='/sign-in'
-							element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+							element={<SignIn msgAlert={msgAlert} setUser={setUser} user={user} />}
 						/>
 
 						<Route
@@ -80,12 +81,12 @@ const App = () => {
 						/>
 
 						<Route
-							path='/:userId'
+							path='/profile'
 							element={
 							<RequireAuth user={user}>
 								<ShowProfile 
 								user={user}
-								triggerRefresh={() => setUpdate(prev => !prev)}
+								// triggerRefresh={() => setUpdate(prev => !prev)}
 								 />
 							</RequireAuth>
 						}
@@ -99,10 +100,26 @@ const App = () => {
 								msgAlert={msgAlert} 
 								user={user}
 								triggerRefresh={() => setUpdate(prev => !prev)}
+								
 								 />
 							</RequireAuth>
 							}
 						/>
+
+
+						<Route
+							path='/user/:userId'
+							element={
+							<RequireAuth user={user}>
+								<Profile2 
+								msgAlert={msgAlert} 
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
+							</RequireAuth>
+							}
+						/>
+
 
 						<Route
 							path='/change-password'
@@ -118,7 +135,7 @@ const App = () => {
 
 
 
-				<Routes>
+				
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} setUser={setUser}/>} />
 
 					<Route
@@ -135,13 +152,13 @@ const App = () => {
 							<NewPost msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 					/>
-
+				
 
 
 
 					
 
-=======
+
           <Route
             path='/sign-out'
             element={
@@ -171,13 +188,7 @@ const App = () => {
                 <ShowContent msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
-		            {/* <Route
-            path='/edit-post/:id'
-            element={
-              <RequireAuth user={user}>
-                <LoggedInContent msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
-          /> */}
+		           
 		  
 
 				</Routes>

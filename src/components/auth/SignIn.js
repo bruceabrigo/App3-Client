@@ -30,7 +30,8 @@ const SignIn = (props) => {
 	const onSignIn = (event) => {
 		event.preventDefault()
         console.log('the props', props)
-		const { msgAlert, setUser } = props
+		const { msgAlert, setUser, user } = props
+        console.log(`++PROPS SIGN IN++`, props)
 
         const credentials = {email, password}
 
@@ -43,7 +44,8 @@ const SignIn = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/:userId'))
+			// .then(() => navigate('/:userId'))
+            .then(()=> navigate(`/profile`))
             // .then(()=> navigate('/update'))
 			.catch((error) => {
                 setEmail('')

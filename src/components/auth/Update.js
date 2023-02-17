@@ -5,12 +5,12 @@ import LoadingScreen from "../shared/LoadingScreen";
 // import { Link } from "react-router-dom";
 import { userProfile, signUp } from "../../api/auth";
 import messages from '../shared/AutoDismissAlert/messages'
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { updateProfile } from "../../api/auth";
 import React from "react";
-import ShowProfile from "./ShowProfile";
-import App from "../../App";
+
+
 
 
 
@@ -38,10 +38,10 @@ const Update = (props) => {
     // Update Variable for trigger refresh
     
 
-    console.log(`------- USER-------`, user)
-    console.log(`----Initial Data -------`, data)
-    console.log(`---- Present User _Id---`, data._id)
-    console.log(`===== USER ID =====`, user._id)
+    // console.log(`------- USER-------`, user)
+    // console.log(`----Initial Data -------`, data)
+    // console.log(`---- Present User _Id---`, data._id)
+    // console.log(`===== UPDATE PROPS =====`, PROPS)
     // useEffect(()=> {
         
     // })
@@ -76,18 +76,13 @@ const Update = (props) => {
                 
                 .then(() => {
                     console.log(`user Id`,user)
-                    nav(`/${user._id}`)
+                    nav(`/user/${user._id}`)
                 })
                 // Create a trigger Refresh in the parent component (wher it is rendered)
                 // That is the updates here are rendered in Show Profile
                 // So we need to build it in the parent
                 .then(()=> triggerRefresh())
-                
-                
-
-
-                
-                
+                    
        
     }
 
