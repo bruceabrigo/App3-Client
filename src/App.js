@@ -13,11 +13,16 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import Update from './components/auth/Update'
 import ChangePassword from './components/auth/ChangePassword'
+
 // Import ShowProfile
 import ShowProfile from './components/auth/ShowProfile' 
 
 
 //------------------ BRUCE----------------- (21,22, 114 and below-2 routes)
+import NewPost from './components/Content/CreatePost'
+import ShowContent from './components/Content/ShowContent'
+
+=======
 import NewPost from './components/Content/CreatePost'
 import ShowContent from './components/Content/ShowContent'
 
@@ -53,6 +58,7 @@ const App = () => {
 		return (
 			<Fragment>
 				<Header user={user} />
+
 					<Routes>
 						<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 						<Route
@@ -112,6 +118,9 @@ const App = () => {
 
 
 
+				<Routes>
+					<Route path='/' element={<Home msgAlert={msgAlert} user={user} setUser={setUser}/>} />
+
 					<Route
 						path='/edit-post/:id'
 						element={
@@ -129,7 +138,47 @@ const App = () => {
 
 
 
+
 					
+
+=======
+          <Route
+            path='/sign-out'
+            element={
+              <RequireAuth user={user}>
+                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path='/change-password'
+            element={
+              <RequireAuth user={user}>
+                <ChangePassword msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+          <Route
+            path='/create-post'
+            element={
+              <RequireAuth user={user}>
+                <NewPost msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+          <Route
+            path='/edit-post/:id'
+            element={
+              <RequireAuth user={user}>
+                <ShowContent msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+		            {/* <Route
+            path='/edit-post/:id'
+            element={
+              <RequireAuth user={user}>
+                <LoggedInContent msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          /> */}
+		  
 
 				</Routes>
 
