@@ -16,10 +16,17 @@ import ChangePassword from './components/auth/ChangePassword'
 // Import ShowProfile
 import ShowProfile from './components/auth/ShowProfile' 
 
+
+//------------------ BRUCE----------------- (21,22, 114 and below-2 routes)
+import NewPost from './components/Content/CreatePost'
+import ShowContent from './components/Content/ShowContent'
+
+
 const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+  const [update, setUpdate] = useState(false)
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -70,21 +77,23 @@ const App = () => {
 							path='/:userId'
 							element={
 							<RequireAuth user={user}>
-								<ShowProfile user={user} />
+								<ShowProfile 
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
 							</RequireAuth>
 						}
 						/>
-
-						{/* <Route
-							path='/update/:userId'
-							element={<Update user={user} />}
-						/> */}
 
 						<Route
 							path='/update/:userId'
 							element={
 							<RequireAuth user={user}>
-								<Update msgAlert={msgAlert} user={user} />
+								<Update 
+								msgAlert={msgAlert} 
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
 							</RequireAuth>
 							}
 						/>
@@ -96,7 +105,38 @@ const App = () => {
 								<ChangePassword msgAlert={msgAlert} user={user} />
 							</RequireAuth>}
 						/>
-					</Routes>
+					
+
+
+
+
+
+
+					<Route
+						path='/edit-post/:id'
+						element={
+						<RequireAuth user={user}>
+							<ShowContent msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+                    />
+					<Route
+						path='/create-post'
+						element={
+						<RequireAuth user={user}>
+							<NewPost msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+					/>
+
+
+
+					
+
+				</Routes>
+
+
+
+
+
 
 					{msgAlerts.map((msgAlert) => (
 						<AutoDismissAlert

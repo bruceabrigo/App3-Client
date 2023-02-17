@@ -9,6 +9,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { updateProfile } from "../../api/auth";
 import React from "react";
+import ShowProfile from "./ShowProfile";
+import App from "../../App";
 
 
 
@@ -17,7 +19,7 @@ const Update = (props) => {
     const nav = useNavigate()
 
     // const { user } = props
-    const { msgAlert, user} = props;
+    const { msgAlert, user, triggerRefresh} = props;
     console.log(`UPDATE PAGE PROPS`, props)
 
     // Setting the initial value of data
@@ -71,23 +73,25 @@ const Update = (props) => {
 
 
             updateProfile(user, data)
+                
                 .then(() => {
                     console.log(`user Id`,user)
                     nav(`/${user._id}`)
                 })
-                // .then(()=> triggerRefresh())
-                // .then(() => triggerRefresh())
+                // Create a trigger Refresh in the parent component (wher it is rendered)
+                // That is the updates here are rendered in Show Profile
+                // So we need to build it in the parent
+                .then(()=> triggerRefresh())
+                
+                
+
+
+                
                 
        
     }
 
-    // Use Effect for Trigger Refresh
-    // useEffect(()=> {
-    //    setUpdate(!update)
-    // }, [update])
 
-
-    //
 
  
     console.log(`UPDATE PAGE -- props.user---`, props.user)
