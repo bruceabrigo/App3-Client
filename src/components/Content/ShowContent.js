@@ -11,7 +11,7 @@ import LoadingScreen from "../shared/LoadingScreen"
 
 const ShowContent = (props) => {
     const [content, setContent] = useState(null) // while no content: state = null | after response: setState = content data from axios call
-    const [editModalShow, setEditMOdalShow] = useState(false)
+    const [editModalShow, setEditModalShow] = useState(false)
 
     const [edited, setEdited] = useState(false)
     console.log('content in show: ', content)
@@ -23,21 +23,23 @@ const ShowContent = (props) => {
     const {user, msgAlert} = props
     console.log('user in show: ', user)
 
+    
     useEffect(() => {
         showContent(id)
-            .then(res => setContent(res.data.content))
-            .catch(err => {
-                msgAlert({
-                    heading: 'Error editing post',
-                    message: messages.editPostFailure,
-                    variant: 'danger'
-                })
+        .then(res => setContent(res.data.content))
+        .catch(err => {
+            msgAlert({
+                heading: 'Error editing post',
+                message: messages.editPostFailure,
+                variant: 'danger'
             })
+        })
     }, [edited])
 
     if (!content) {
-        <LoadingScreen />
+        return <LoadingScreen />
     }
+
 
     const deleteAPost = () => {
         deletePost(user, content._id)
@@ -57,32 +59,44 @@ const ShowContent = (props) => {
                 })
             })
     }
-
-
+    
     return (
         <>
             <Container className="mt-5">
                 <Card>
                     <Card.Header>Content</Card.Header>
                         <Card.Body>
-                            {content.material}
+                            <Card.Text className="pb-2 border-bottom">
+                                    {content.material}
+                                    {/* {content?.material} */}
+                            </Card.Text>
+                            <Card.Text>
+                            <Button 
+                                    className="m-2" variant="warning"
+                                    onClick={() => setEditModalShow(true)}
+                                >
+                                    Edit 
+                                </Button>
+                            </Card.Text>
+
                         </Card.Body>
                 </Card>
             </Container>
+        <div className='container-md'>
+            <Container>
+            </Container>
+            <EditModal
+                user={user}
+                content={content}
+                show={editModalShow}
+                editPost={editPost}
+                handleClose={() => setEditModalShow(false)}
+                msgAlert={msgAlert}
+                triggerRefresh={() => setContent(prev => !prev)}
+            />
+        </div>
         </>
         
-        // <div className='container-md'>
-        //     <Container>
-        //         {contentContainer}
-        //     </Container>
-        //     <EditModal
-        //         user={user}
-        //         show={editModalShow}
-        //         editPost={editPost}
-        //         handleClose={() => setEditMOdalShow(false)}
-        //         msgAlert={msgAlert}
-        //     />
-        // </div>
     )
 }
 

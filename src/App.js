@@ -19,6 +19,7 @@ import NewPost from './components/Content/CreatePost'
 import ShowContent from './components/Content/ShowContent'
 
 
+
 const App = () => {
 
   const [user, setUser] = useState(null)
