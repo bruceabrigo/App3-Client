@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react'
 import { userProfile } from '../../api/auth'
 import { useParams } from 'react-router-dom'
 import Update from './Update'
+import { Card } from 'react-bootstrap'
+import ListGroupItem from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Profile2 = (props) => {
 
@@ -25,7 +29,30 @@ const Profile2 = (props) => {
 
   return (
     <div>
-      {user.name}
+      <Card>
+        User Profile
+        {user._id}
+        <Card.Img id='imagecover' variant="top" src={user.coverPicture} />
+      
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={user.profilePicture} />
+          <Card.Body>
+            <Card.Title>{user.name}</Card.Title>
+            <Card.Text>
+              {user.description}
+            </Card.Text>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item>Location: {user.city}</ListGroup.Item>
+            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          </ListGroup>
+          <Card.Body>
+            <Link to={`/update/${user._id}`} >Update Details</Link> <br />
+            <Link to={`/profile`}>view Profile</Link>
+          </Card.Body>
+        </Card>
+      </Card>
 
     </div>
   )

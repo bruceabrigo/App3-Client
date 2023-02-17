@@ -22,6 +22,7 @@ import ShowProfile from './components/auth/ShowProfile'
 import NewPost from './components/Content/CreatePost'
 import ShowContent from './components/Content/ShowContent'
 import Profile2 from './components/auth/Profile2'
+import ShowCart from './components/FollowCart.js/ShowCart'
 
 
 
@@ -30,9 +31,15 @@ import Profile2 from './components/auth/Profile2'
 
 const App = () => {
 
+	// USE STATE FOR ALL ITEMS IN BACKEND
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
   const [update, setUpdate] = useState(false)
+  const [fcart, setFCart] = useState({
+        owner: user,
+        followers: [],
+        followings: []
+  })
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -117,6 +124,20 @@ const App = () => {
 								triggerRefresh={() => setUpdate(prev => !prev)}
 								 />
 							</RequireAuth>
+							}
+						/>
+
+						<Route
+							path='/follow/:userId'
+							element={
+							
+								<ShowCart 
+								msgAlert={msgAlert} 
+								fcart={fcart}
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
+							
 							}
 						/>
 
