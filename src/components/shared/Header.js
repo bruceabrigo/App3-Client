@@ -10,8 +10,7 @@ const linkStyle = {
 
 const navbarStyle = {
 	display: 'flex',
-    justifyContent: 'center',
-	backgroundColor: 'Red',
+	backgroundColor: '#8A9A5B',
 	paddingLeft: '50px'
 }
 const authenticatedOptions = (

@@ -92,7 +92,7 @@ const ShowContent = (props) => {
                 editPost={editPost}
                 handleClose={() => setEditModalShow(false)}
                 msgAlert={msgAlert}
-                triggerRefresh={() => setContent(prev => !prev)}
+                triggerRefresh={() => setEdited(prev => !prev)}
             />
         </div>
         </>

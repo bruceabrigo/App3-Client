@@ -27,7 +27,7 @@ export const newPost = (user, createContent) => {
 /* ---------------------- Update ---------------------- */
 export const editPost = (user, updatedContent) => {
     return axios({
-        url: `${apiUrl}/content/${updatedContent.id}`,
+        url: `${apiUrl}/content/${updatedContent._id}`,
         method: 'PATCH',
         headers: {
             Authorization: `Token token=${user.token}`

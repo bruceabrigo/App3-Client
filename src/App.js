@@ -110,7 +110,7 @@ const App = () => {
 						<RequireAuth user={user}>
 							<ShowContent msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
-                    />
+            />
 					<Route
 						path='/create-post'
 						element={
@@ -118,18 +118,7 @@ const App = () => {
 							<NewPost msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 					/>
-
-
-
-					
-
 				</Routes>
-
-
-
-
-
-
 					{msgAlerts.map((msgAlert) => (
 						<AutoDismissAlert
 							key={msgAlert.id}

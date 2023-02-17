@@ -56,9 +56,6 @@ const NewPost = (props) => {
 
     const createCard = (
 		<Card className="mt-4">
-			<Card.Header>
-				<h2>Welcome Back</h2>
-			</Card.Header>
 			<Card.Body>
             <ContentForm
                 content={content}

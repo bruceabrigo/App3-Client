@@ -4,7 +4,6 @@ import ContentForm from "../shared/NewPostForm";
 import messages from "../shared/AutoDismissAlert/messages";
 import LoadingScreen from "../shared/LoadingScreen";
 
-import { editPost } from "../../api/content";
 
 const EditModal = (props) => {
     const {user, show, handleClose, editPost, msgAlert, triggerRefresh} = props
@@ -16,7 +15,7 @@ const EditModal = (props) => {
     const onChange = (e) => {
         e.persist()
 
-        setContent(prevPost => {
+        setContent(prevContent => {
             const editedPost = e.target.name
             let updatedValue = e.target.value
 
@@ -24,8 +23,10 @@ const EditModal = (props) => {
                 [editedPost] : updatedValue
             }
 
+            console.log('updated in content: ', editedMaterial)
+
             return {
-                ...prevPost, ...editedMaterial
+                ...prevContent, ...editedMaterial
             }
         })
     }
@@ -34,7 +35,7 @@ const EditModal = (props) => {
         e.preventDefault()
 
         editPost(user, content)
-            .then(() => triggerRefresh())
+            .then(() => handleClose())
             .then(() => {
                 msgAlert({
                     heading: 'Post saved!',
@@ -42,7 +43,7 @@ const EditModal = (props) => {
                     variant: 'success'
                 })
             })
-            .then(() => setContent(prev => !prev))
+            .then(() => triggerRefresh())
             .catch(() => {
                 msgAlert({
                     heading: 'Error with edit',
@@ -64,7 +65,6 @@ const EditModal = (props) => {
                         content={content}
                         handleChange={onChange}
                         handleSubmit={onSubmit}
-                        heading='Edit Post'
                     />
                 </Modal.Body>
         </Modal>

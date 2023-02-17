@@ -38,7 +38,7 @@ const ContentIndex = (props) => {
         return <p>Create post or follow new users!</p>
     }
 
-    const contentContainer = content.map(content => (
+    const contentContainer = content.reverse().map(content => (
         <Card key={content._id} className='mb-4'>
             <Card.Body>
                     {/* Username will go here */}
