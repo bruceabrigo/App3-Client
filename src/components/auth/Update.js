@@ -8,7 +8,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 import { Navigate, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { updateProfile } from "../../api/auth";
-
+import React from "react";
 
 
 
@@ -34,7 +34,7 @@ const Update = (props) => {
     })
 
     // Update Variable for trigger refresh
-    const [update, setUpdate] = useState(false)
+    
 
     console.log(`------- USER-------`, user)
     console.log(`----Initial Data -------`, data)
@@ -75,6 +75,9 @@ const Update = (props) => {
                     console.log(`user Id`,user)
                     nav(`/${user._id}`)
                 })
+                // .then(()=> triggerRefresh())
+                // .then(() => triggerRefresh())
+                
        
     }
 
@@ -84,7 +87,7 @@ const Update = (props) => {
     // }, [update])
 
 
-    
+    //
 
  
     console.log(`UPDATE PAGE -- props.user---`, props.user)

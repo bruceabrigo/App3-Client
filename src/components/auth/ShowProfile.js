@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { Card, Container, Button } from "react-bootstrap"
 import LoadingScreen from '../shared/LoadingScreen'
 import { Link } from 'react-router-dom'
+import Update from './Update'
 
 import ListGroup from 'react-bootstrap/ListGroup'
 // import Update from './Update'
@@ -20,6 +21,7 @@ const ShowProfile = (props) => {
         return <p> <LoadingScreen /> </p>
     }
     
+    // const [update, setUpdate] = useState(false)
 // 
   
   
@@ -49,7 +51,7 @@ const ShowProfile = (props) => {
         <Card.Link href="#">Another Link</Card.Link>
       </Card.Body>
 
-      {/* <Update user={user}/> */}
+      
      
     </Card>
     </Card>
