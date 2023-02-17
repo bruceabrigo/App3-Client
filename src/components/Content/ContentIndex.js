@@ -84,7 +84,7 @@ const ContentIndex = (props) => {
 
     return (
         <div className='container-md'>
-            <Container>
+            <Container >
                 {contentContainer}
             </Container>
         </div>

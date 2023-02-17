@@ -64,6 +64,7 @@ const NewPost = (props) => {
                 content={content}
                 handleChange={onChange}
                 handleSubmit={onSubmit}
+                user={user}
             />
 			</Card.Body>
 		</Card>

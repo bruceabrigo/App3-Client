@@ -13,7 +13,7 @@ export const showContent = (id) => {
 /* ---------------------- Create ---------------------- */
 export const newPost = (user, createContent) => {
     console.log('this is the user in axios call: ', user)
-    console.log('this is the newPet', createContent)
+    console.log('Content to be Posted', createContent)
     return axios({
         url: `${apiUrl}/content/${user._id}`,
         method: 'POST',

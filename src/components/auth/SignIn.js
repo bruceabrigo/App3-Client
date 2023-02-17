@@ -18,6 +18,7 @@ const SignIn = (props) => {
 	// }
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
 
     const navigate = useNavigate()
 
@@ -42,7 +43,8 @@ const SignIn = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/'))
+			.then(() => navigate('/:userId'))
+            // .then(()=> navigate('/update'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')

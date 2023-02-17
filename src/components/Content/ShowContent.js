@@ -35,6 +35,10 @@ const ShowContent = (props) => {
             })
     }, [edited])
 
+    if (!content) {
+        <LoadingScreen />
+    }
+
     const deleteAPost = () => {
         deletePost(user, content._id)
             .then(() => {
@@ -54,9 +58,6 @@ const ShowContent = (props) => {
             })
     }
 
-    if (!content) {
-        <LoadingScreen />
-    }
 
     return (
         <>
@@ -64,7 +65,7 @@ const ShowContent = (props) => {
                 <Card>
                     <Card.Header>Content</Card.Header>
                         <Card.Body>
-                            {/* {content} */}
+                            {content.material}
                         </Card.Body>
                 </Card>
             </Container>

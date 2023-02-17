@@ -1,6 +1,9 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
+// Making calls to Backend - API Calls
+
+//--------------------- SIGN UP --------------------
 export const signUp = (credentials) => {
 	return axios({
 		method: 'POST',
@@ -10,11 +13,18 @@ export const signUp = (credentials) => {
 				email: credentials.email,
 				password: credentials.password,
 				password_confirmation: credentials.passwordConfirmation,
+				name: credentials.name,
+				profilePicture: credentials.profilePicture,
+				coverPicture: credentials.coverPicture,
+				description: credentials.description,
+				active: credentials.active
+
 			},
 		},
 	})
 }
 
+//--------------------- SIGN IN --------------------
 export const signIn = (credentials) => {
 	return axios({
 		url: apiUrl + '/sign-in',
@@ -28,6 +38,7 @@ export const signIn = (credentials) => {
 	})
 }
 
+//--------------------- SIGN OUT --------------------
 export const signOut = (user) => {
 	return axios({
 		url: apiUrl + '/sign-out',
@@ -38,6 +49,39 @@ export const signOut = (user) => {
 	})
 }
 
+//--------------------- SHOW ONE USER PROFILE --------------------
+
+export const userProfile = (id) => {
+	return axios(`${apiUrl}/user/${id}`)
+}
+
+//--------------------- UPDATE PROFILE --------------------
+
+// export const updateProfile = (user, userId, updatedUser) => {
+// 	return axios({
+// 		url: `${apiUrl}/update/`,
+// 		method: 'PATCH',
+// 		headers: {
+// 			Authorization: `Token token=${user.token}`,
+// 		},
+// 		data: { user: updatedUser }
+// 	})
+// } 
+
+export const updateProfile = (user, updatedUser) => {
+	console.log(`---updatedProfile API --- userId`,updatedUser._id)
+	return axios({
+	  url: `${apiUrl}/update/${updatedUser._id}`, // Include userId in the URL
+	  method: 'PATCH',
+	  headers: {
+		Authorization: `Token token=${user.token}`,
+	  },
+	  data: { credentials: updatedUser } // Use the correct key for the updated user object
+	})
+  }
+  
+
+//--------------------- CHANGE PASSWORD --------------------
 export const changePassword = (passwords, user) => {
 	return axios({
 		url: apiUrl + '/change-password',
@@ -49,6 +93,7 @@ export const changePassword = (passwords, user) => {
 			passwords: {
 				old: passwords.oldPassword,
 				new: passwords.newPassword,
+				
 			},
 		},
 	})
