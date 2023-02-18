@@ -16,6 +16,11 @@ const navbarStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item className='m-2'>
+			<Link to={'/:userId'} style={linkStyle}>
+				View Profile
+			</Link>
+		</Nav.Item >
+		<Nav.Item className='m-2'>
 			<Link to='create-post' style={linkStyle}>
 				Make Post
 			</Link>

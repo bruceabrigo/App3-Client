@@ -22,6 +22,8 @@ import ShowContent from './components/Content/ShowContent'
 
 const App = () => {
 
+  document.body.style = 'background: #f5f5f5;';
+
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
   const [update, setUpdate] = useState(false)
@@ -47,7 +49,6 @@ const App = () => {
       )
 		})
 	}
-
 		return (
 			<Fragment>
 				<Header user={user} />
