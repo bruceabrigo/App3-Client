@@ -50,7 +50,7 @@ const ShowContent = (props) => {
                     variant: 'success'
                 })
             })
-            .then(() => {navigate('view-content')})
+            .then(() => {navigate('/')})
             .catch(() => {
                 msgAlert({
                     heading: 'Post failed to delete...',
@@ -62,20 +62,26 @@ const ShowContent = (props) => {
     
     return (
         <>
-            <Container className="mt-5">
-                <Card>
+            <Container className="mt-5 ">
+                <Card className="d-flex justify-content-around">
                     <Card.Header>Content</Card.Header>
                         <Card.Body>
                             <Card.Text className="pb-2 border-bottom">
                                     {content.material}
                                     {/* {content?.material} */}
                             </Card.Text>
-                            <Card.Text>
-                            <Button 
-                                    className="m-2" variant="warning"
-                                    onClick={() => setEditModalShow(true)}
-                                >
-                                    Edit 
+                            <Card.Text className="d-flex justify-content-around">
+                                <Button 
+                                        className="m-2" variant="warning"
+                                        onClick={() => setEditModalShow(true)}
+                                    >
+                                        Edit 
+                                </Button>
+                                <Button 
+                                        className="m-2" variant="danger"
+                                        onClick={() => deleteAPost()}
+                                    >
+                                        Delete post 
                                 </Button>
                             </Card.Text>
 
