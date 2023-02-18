@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import { Card, Container, Button} from "react-bootstrap"
 import { Link } from "react-router-dom"
 import LoadingScreen from '../shared/LoadingScreen'
+import ShowProfile from '../auth/showProfile'
 
 import { getAllContent } from '../../api/content'
 
@@ -82,6 +83,9 @@ const ContentIndex = (props) => {
             <Container >
                 {contentContainer}
             </Container>
+            {/* <ShowProfile
+                content={content}
+            /> */}
         </div>
     )
 }

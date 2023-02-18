@@ -23,6 +23,9 @@ const ShowProfile = (props) => {
   // const nav = Navigate()
   const { user, triggerRefresh } = props
 
+  // const [content, setContent] = useState(null)
+  // console.log('Content in Show Profile: ', content)
+
   console.log(`---------- USER PROP ---------`,props)
 
   console.log(`--SHOW PAGE PROPS ---`, props)
