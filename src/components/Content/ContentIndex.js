@@ -19,7 +19,7 @@ const ContentIndex = (props) => {
     useEffect(() => {
         getAllContent()
             .then(res => setContent(res.data.contents)) // this retrieves all content from the axios response, and sets state in SetContent to the content data
-            .catch(err => {
+            .catch(err => { // if there is an error getting content data, retrieve msgAlert error code
                 msgAlert({
                     heading: 'Error with content',
                     message: 'Trouble receiving content data',
@@ -34,8 +34,8 @@ const ContentIndex = (props) => {
     }
 
     if(!content) {
-        return <LoadingScreen/>
-    } else if(content.length === 0) {
+        return <LoadingScreen/> // prevents browser from reading null state before set state
+    } else if(content.length === 0) { // while no content, prompt user to post content to follow users
         return <p>Create post or follow new users!</p>
     }
 
@@ -47,6 +47,7 @@ const ContentIndex = (props) => {
                         <Card.Title>
                             {/* {content.owner.} */}
                             {
+                                // verifies content owner with current user to allow for updating and deleting over content on index page
                                 content.owner && user && content.owner._id === user._id
                                 ?
                                 <>
@@ -91,9 +92,9 @@ const ContentIndex = (props) => {
             <Container >
                 {contentContainer}
             </Container>
-            {/* <ShowProfile
+            <ShowProfile
                 content={content}
-            /> */}
+            />
         </div>
     )
 }

@@ -73,7 +73,7 @@ const App = () => {
 						/>
 
 						<Route
-							path='/:userId'
+							path='/view-profile'
 							element={
 							<RequireAuth user={user}>
 								<ShowProfile 

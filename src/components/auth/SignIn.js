@@ -43,7 +43,7 @@ const SignIn = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/:userId'))
+			.then(() => navigate('/view-profile'))
             // .then(()=> navigate('/update'))
 			.catch((error) => {
                 setEmail('')
