@@ -22,7 +22,7 @@ const navbarStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item className='m-2'>
-			<Link to={'/:userId'} style={linkStyle}>
+			<Link to={'/view-profile'} style={linkStyle}>
 				View Profile
 			</Link>
 		</Nav.Item >
