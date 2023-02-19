@@ -1,5 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -42,6 +42,13 @@ const App = () => {
         followers: [],
         followings: []
   })
+
+  //////// UER EFFECT /////////////
+  useEffect(()=> {
+
+}, [update])
+
+
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -138,10 +145,25 @@ const App = () => {
 								msgAlert={msgAlert} 
 								user={user}
 								triggerRefresh={() => setUpdate(prev => !prev)}
+								update={update}
+							
 								 />
 							</RequireAuth>
 							}
 						/>
+
+						{/* <Route
+							path='/user/:userId'
+							element={
+							<RequireAuth user={user}>
+								<Profile2 
+								msgAlert={msgAlert} 
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
+							</RequireAuth>
+							}
+						/> */}
 
 						<Route
 							path='/followers/:userId'

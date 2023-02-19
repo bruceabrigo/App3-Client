@@ -13,8 +13,8 @@ function ShowCart(props) {
     console.log(`Show Cart Props`, props)
     const { userId } = useParams()
     const [fcart, setFCart] = useState({
-        owner: '',
-        followers: [],
+        owner: null,
+        followers: [{}],
         followings: []
   })
 
@@ -35,26 +35,31 @@ function ShowCart(props) {
   console.log(`People you follow`, fcart.followings.length)
     
   // Showing each person the user is following
-//   let peopleCards
-//   fcart.followings.map(people=> {
-
+  
+// let peopleCards = fcart.followings.map((people) => (
 //     <Card key={people._id}>
-//         <Card.Body>
-//             {people._id}
-//         </Card.Body>
-        
+//       <Card.Body>
+//         {people}
+//       </Card.Body>
 //     </Card>
-//     console.log(`This is key`, people._id)
-//   })
+//   ));
 
+// let peopleCards = fcart.followings.map((people) => (
+//     <Card key={people._id}>
+//       <Card.Body>
+//         {people.name}
+//       </Card.Body>
+//     </Card>
+//   ));
   
 let peopleCards = fcart.followings.map((people) => (
     <Card key={people._id}>
       <Card.Body>
-        {people}
+        {people.name} {/*or {people.email}, or any other property of the people object*/}
       </Card.Body>
     </Card>
   ));
+  
 
   
   return (

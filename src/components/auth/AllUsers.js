@@ -60,7 +60,7 @@ function AllUsers(props) {
                     <Button
                         onClick={() => {
                         followings(fcart, user._id, all._id)
-                        followers(fcart, user._id, all._id)
+                        // followers(fcart, user._id, all._id)
                         // .then(res=> console.log(`This is res`,res))
                         }}
                     >

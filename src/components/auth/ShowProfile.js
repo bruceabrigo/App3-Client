@@ -7,6 +7,7 @@ import { Card, Container, Button } from "react-bootstrap"
 import LoadingScreen from '../shared/LoadingScreen'
 import { Link } from 'react-router-dom'
 import messages from '../shared/AutoDismissAlert/messages'
+import Update from './Update'
 // Render FollowCart Here
 import ShowCart from '../FollowCart.js/ShowCart'
 // Import teh child component
@@ -39,7 +40,8 @@ const ShowProfile = (props) => {
   return (
     <>
       <Link to={`/update/${user._id}`}>Update Profile</Link><br/>
-      <Link to={`/user/${user._id}`}>view Profile</Link><br/>
+      <Link to={`/user/${user._id}`}>view Profile</Link> 
+      <br/>
       <Link to={`/followers/${user._id}`}>Followers</Link><br/>
       <Link to={`/users`}>Other Profiles</Link>
 

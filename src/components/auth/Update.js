@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { updateProfile } from "../../api/auth";
 import React from "react";
-
+import Profile2 from "./Profile2";
 
 
 
@@ -19,72 +19,72 @@ const Update = (props) => {
     const nav = useNavigate()
 
     // const { user } = props
-    const { msgAlert, user, triggerRefresh} = props;
+    const { msgAlert, user, onChange, onSubmit } = props;
     console.log(`UPDATE PAGE PROPS`, props)
 
-    // Setting the initial value of data
-    const [data, setData] = useState({
-        name: user.name,
-        email: user.email,
-        password: user.password,
-        passwordConfirmation: user.passwordConfirmation,
-        profilePicture: user.profilePicture,
-        coverPicture: user.coverPicture,
-        description: user.description,
-        _id: user._id
+    // Setting the initial value of user
+    // const [user, setuser] = useState({
+    //     name: user.name,
+    //     email: user.email,
+    //     password: user.password,
+    //     passwordConfirmation: user.passwordConfirmation,
+    //     profilePicture: user.profilePicture,
+    //     coverPicture: user.coverPicture,
+    //     description: user.description,
+    //     _id: user._id
 
-    })
+    // })
 
     // Update Variable for trigger refresh
     
 
     // console.log(`------- USER-------`, user)
-    // console.log(`----Initial Data -------`, data)
-    // console.log(`---- Present User _Id---`, data._id)
+    // console.log(`----Initial user -------`, user)
+    // console.log(`---- Present User _Id---`, user._id)
     // console.log(`===== UPDATE PROPS =====`, PROPS)
     // useEffect(()=> {
         
     // })
 
-    const onChange = (e) => {
-        e.persist()
+    // const onChange = (e) => {
+    //     e.persist()
 
-            setData(prevData => {
-            const updatedName = e.target.name
-            const updatedValue = e.target.value
+    //         setuser(prevuser => {
+    //         const updatedName = e.target.name
+    //         const updatedValue = e.target.value
 
-            let updatedUser = {
-                [updatedName]: updatedValue
-            }
+    //         let updatedUser = {
+    //             [updatedName]: updatedValue
+    //         }
 
-            console.log(`----New Data----`, updatedUser)
+    //         console.log(`----New user----`, updatedUser)
 
-            return{
-                ...prevData, ...updatedUser
-            }
-        })
-    }
-
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-
-        console.log(`--e--`,e.target.name)
+    //         return{
+    //             ...prevuser, ...updatedUser
+    //         }
+    //     })
+    // }
 
 
-            updateProfile(user, data)
+    // const onSubmit = (e) => {
+    //     e.preventDefault()
+
+    //     console.log(`--e--`,e.target.name)
+
+
+    //         updateProfile(user, user)
                 
-                .then(() => {
-                    console.log(`user Id`,user)
-                    nav(`/user/${user._id}`)
-                })
-                // Create a trigger Refresh in the parent component (wher it is rendered)
-                // That is the updates here are rendered in Show Profile
-                // So we need to build it in the parent
-                .then(()=> triggerRefresh())
+    //             .then(() => {
+    //                 console.log(`user Id`,user)
+    //                 nav(`/user/${user._id}`)
+    //             })
+    //             // Create a trigger Refresh in the parent component (wher it is rendered)
+    //             // That is the updates here are rendered in Show Profile
+    //             // So we need to build it in the parent
+    //             // .then(()=> triggerRefresh())
                     
        
-    }
+    // }
 
 
 
@@ -109,7 +109,7 @@ const Update = (props) => {
                         <Form.Control
                             
                             name='email'
-                            value={data.email}
+                            value={user.email}
                             placeholder='Enter email'
                             onChange={onChange}
                         />
@@ -120,7 +120,7 @@ const Update = (props) => {
                         <Form.Control
                             
                             name='name'
-                            value={data.name}
+                            value={user.name}
                             placeholder='Enter name'
                             onChange={onChange}
                         />
@@ -131,7 +131,7 @@ const Update = (props) => {
                         <Form.Control
                             
                             name='description'
-                            value={data.description}
+                            value={user.description}
                             placeholder='Enter description'
                             onChange={onChange}
                         />
@@ -142,7 +142,7 @@ const Update = (props) => {
                         <Form.Control
                             
                             name='password'
-                            value={data.password}
+                            value={user.password}
                             placeholder='Enter password'
                             onChange={onChange}
                         />
@@ -153,7 +153,7 @@ const Update = (props) => {
                         <Form.Control
                             
                             name='passwordConfirmation'
-                            value={data.passwordConfirmation}
+                            value={user.passwordConfirmation}
                             placeholder='Enter passwordConfirmation'
                             onChange={onChange}
                         />
@@ -164,7 +164,7 @@ const Update = (props) => {
                         <Form.Control
                             
                             name='profilePicture'
-                            value={data.profilePicture}
+                            value={user.profilePicture}
                             placeholder='Enter profilePicture'
                             onChange={onChange}
                         />
@@ -175,7 +175,7 @@ const Update = (props) => {
                         <Form.Control
                             
                             name='coverPicture'
-                            value={data.coverPicture}
+                            value={user.coverPicture}
                             placeholder='Enter coverPicture'
                             onChange={onChange}
                         />
