@@ -3,7 +3,8 @@ import {Card, Button} from 'react-bootstrap'
 
 import { useParams } from 'react-router-dom'
 import {  userFollowCart,followers, followings } from '../../api/followCart'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import LoadingScreen from '../shared/LoadingScreen'
 
 
 function ShowCart(props) {
@@ -18,20 +19,54 @@ function ShowCart(props) {
   })
 
   
-
-    // Make axios call
+  // Use Effect + Finding the user Cart
+  useEffect(()=> {
+    // AXIOS -> to get user Cart
     userFollowCart(fcart, userId)
-        .then((res)=> console.log(`This is res in folloeCart`,res))
+        .then((res)=> setFCart(res.data.fcart))
+
+  }, [])
+
+  // LOADING SCREEN
+  if(!fcart){
+    <LoadingScreen />
+  } 
+
+  console.log(`People you follow`, fcart.followings.length)
+    
+  // Showing each person the user is following
+//   let peopleCards
+//   fcart.followings.map(people=> {
+
+//     <Card key={people._id}>
+//         <Card.Body>
+//             {people._id}
+//         </Card.Body>
         
+//     </Card>
+//     console.log(`This is key`, people._id)
+//   })
 
+  
+let peopleCards = fcart.followings.map((people) => (
+    <Card key={people._id}>
+      <Card.Body>
+        {people}
+      </Card.Body>
+    </Card>
+  ));
 
-
+  
   return (
     <div>
       <Card className='m-2'>
         <Card.Header></Card.Header>
         <Card.Body>
-            <small>FOLLOW CART</small>
+            <small>FOLLOW CART of the user</small> 
+            No. of People you follow - {fcart.followings.length} <br />
+            Owner Name: {fcart.owner} <br/>
+            People names whome you are following - {peopleCards}
+            
         </Card.Body>
 
       </Card>

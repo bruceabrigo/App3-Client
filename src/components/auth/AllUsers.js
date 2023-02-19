@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react'
 import LoadingScreen from '../shared/LoadingScreen'
 import { Card, Container, Button} from "react-bootstrap"
 import { followings } from '../../api/followCart'
+import { followers } from '../../api/followCart'
 
 
 function AllUsers(props) {
 
     const {user, fcart} = props
     const [users, setUsers] = useState(null)
+    console.log(`F cart`, fcart)
 
     useEffect(()=> {
     // Making API CAll
@@ -33,20 +35,40 @@ function AllUsers(props) {
     const allUsersContainer = users.map(all => (
         <Card key={all._id}>
             <Card.Body>
-                <Card.Title>{all.name}</Card.Title>
-                {
-                    if(fcart.followings.includes(all._id)){
-                            <p>Already Following</p>
-                    } else {
-                        <Button onClick={()=> { 
-                    followings(fcart, user._id, all._id)
+                    <Card.Title>{all.name}</Card.Title>
+                    All._id = {all._id}
+                    fcart={fcart}
+
+                    {/* {
+                    fcart.followings.includes(all._id) 
+                    ? 
+                    (
+                    <Button className='text-submit'>Following</Button>
+                    ) : 
+                    (
+                    <Button
+                        onClick={() => {
+                        followings(fcart, user._id, all._id);
                         // .then(res=> console.log(`This is res`,res))
-                    }
-                }>Follow</Button>
-                    }
-                }
-                
+                        }}
+                    >
+                        Follow
+                    </Button>
+                    )} */}
+
+                    
+                    <Button
+                        onClick={() => {
+                        followings(fcart, user._id, all._id)
+                        followers(fcart, user._id, all._id)
+                        // .then(res=> console.log(`This is res`,res))
+                        }}
+                    >
+                        Follow
+                    </Button>
+
             </Card.Body>
+
 
         </Card>
         
@@ -55,6 +77,7 @@ function AllUsers(props) {
 
 
     <div>
+        
        <Container>
             {allUsersContainer}
         </Container>
