@@ -7,6 +7,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import './SignUp.scss'
 
 
 const SignUp = (props) => {
@@ -43,7 +44,7 @@ const SignUp = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/:userId'))
+			.then(() => navigate('/view-profile'))
             // .then(() => navigate('/update'))
 			.catch((error) => {
                 setEmail('')
@@ -59,99 +60,108 @@ const SignUp = (props) => {
 
 
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign Up</h3>
-                <Form onSubmit={onSignUp}>
-                    
-                    <Form.Group controlId='email'>
-                        <Form.Label>*Email address</Form.Label>
-                        <Form.Control
-                            required
-                            type='email'
-                            name='email'
-                            value={email}
-                            placeholder='Enter email'
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </Form.Group>
+        <div className='signup'>
+            <div className='signup-card'>
+                    <div className='left'>
+                        <h1>BRECRYPT</h1>
+                        <p>
+                            Welcome to BRECRYPT, a social media platform to post just about anything.
+                        </p>
+                    </div>
+                    <div className='right'>
 
-                    <Form.Group controlId='name'>
-                        <Form.Label>*Name</Form.Label>
-                        <Form.Control
-                            required
-                            type='name'
-                            name='name'
-                            value={name}
-                            placeholder='name'
-                            onChange={e => setName(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group controlId='description'>
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control
+                        <Form onSubmit={onSignUp}>
                             
-                            type='description'
-                            name='description'
-                            value={description}
-                            placeholder='description'
-                            onChange={e => setDescription(e.target.value)}
-                        />
-                    </Form.Group>
+                            <Form.Group controlId='email'>
+                                <Form.Label>*Email address</Form.Label>
+                                <Form.Control
+                                    required
+                                    type='email'
+                                    name='email'
+                                    value={email}
+                                    placeholder='Enter email'
+                                    onChange={e => setEmail(e.target.value)}
+                                />
+                            </Form.Group>
+
+                            <Form.Group controlId='name'>
+                                <Form.Label>*Name</Form.Label>
+                                <Form.Control
+                                    required
+                                    type='name'
+                                    name='name'
+                                    value={name}
+                                    placeholder='name'
+                                    onChange={e => setName(e.target.value)}
+                                />
+                            </Form.Group>
+
+                            <Form.Group controlId='description'>
+                                <Form.Label>Description</Form.Label>
+                                <Form.Control
+                                    
+                                    type='description'
+                                    name='description'
+                                    value={description}
+                                    placeholder='description'
+                                    onChange={e => setDescription(e.target.value)}
+                                />
+                            </Form.Group>
 
 
-                    <Form.Group controlId='password'>
-                        <Form.Label>*Password</Form.Label>
-                        <Form.Control
-                            required
-                            name='password'
-                            value={password}
-                            type='password'
-                            placeholder='Password'
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='passwordConfirmation'>
-                        <Form.Label>*Password Confirmation</Form.Label>
-                        <Form.Control
-                            required
-                            name='passwordConfirmation'
-                            value={passwordConfirmation}
-                            type='password'
-                            placeholder='Confirm Password'
-                            onChange={e => setPasswordConfirmation(e.target.value)}
-                        />
-                    </Form.Group>
+                            <Form.Group controlId='password'>
+                                <Form.Label>*Password</Form.Label>
+                                <Form.Control
+                                    required
+                                    name='password'
+                                    value={password}
+                                    type='password'
+                                    placeholder='Password'
+                                    onChange={e => setPassword(e.target.value)}
+                                />
+                            </Form.Group>
+                            <Form.Group controlId='passwordConfirmation'>
+                                <Form.Label>*Password Confirmation</Form.Label>
+                                <Form.Control
+                                    required
+                                    name='passwordConfirmation'
+                                    value={passwordConfirmation}
+                                    type='password'
+                                    placeholder='Confirm Password'
+                                    onChange={e => setPasswordConfirmation(e.target.value)}
+                                />
+                            </Form.Group>
 
-                    <Form.Group controlId='profilePicture'>
-                        <Form.Label>Profile Picture</Form.Label>
-                        <Form.Control
-                            
-                            type='profilePicture'
-                            name='profilePicture'
-                            value={profilePicture}
-                            placeholder='profilePicture'
-                            onChange={e => setProfilePicture(e.target.value)}
-                        />
-                    </Form.Group>
+                            <Form.Group controlId='profilePicture'>
+                                <Form.Label>Profile Picture</Form.Label>
+                                <Form.Control
+                                    
+                                    type='profilePicture'
+                                    name='profilePicture'
+                                    value={profilePicture}
+                                    placeholder='profilePicture'
+                                    onChange={e => setProfilePicture(e.target.value)}
+                                />
+                            </Form.Group>
 
-                    <Form.Group controlId='coverPicture'>
-                        <Form.Label>Cover Picture</Form.Label>
-                        <Form.Control
-                            
-                            type='coverPicture'
-                            name='coverPicture'
-                            value={coverPicture}
-                            placeholder='coverPicture'
-                            onChange={e => setCoverPicture(e.target.value)}
-                        />
-                    </Form.Group>
+                            <Form.Group controlId='coverPicture'>
+                                <Form.Label>Cover Picture</Form.Label>
+                                <Form.Control
+                                    
+                                    type='coverPicture'
+                                    name='coverPicture'
+                                    value={coverPicture}
+                                    placeholder='coverPicture'
+                                    onChange={e => setCoverPicture(e.target.value)}
+                                />
+                            </Form.Group>
 
-                    <Button variant='primary' type='submit'>
-                        Submit
-                    </Button>
-                </Form>
+                            <Button className='mt-2' variant='primary' type='submit'>
+                                Submit
+                            </Button>
+                        
+                        </Form>
+                    </div>
             </div>
             
         </div>
