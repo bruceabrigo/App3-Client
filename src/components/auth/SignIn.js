@@ -65,7 +65,7 @@ const SignIn = (props) => {
                     <p>I hope you enjoyed your time away! But we think you should come back to the web!</p>
                 </div>
                     <div className='right'>
-                        <h3>Sign In</h3>
+                        <h1>Sign In</h1>
                         <Form onSubmit={onSignIn}>
                             <Form.Group controlId='email'>
                                 <Form.Label>Email address</Form.Label>
