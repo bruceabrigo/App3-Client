@@ -65,10 +65,12 @@ export const getComments = async (user) => {
 	  headers: {
 		Authorization: `Token token=${user.token}`,
 	  },
-	});
-  };
+	})
+  }
   
   export const createComment = async (text, parentId, user) => {
+	console.log("hello world")
+	
 	return axios({
 	  url: apiUrl + '/comments',
 	  method: 'POST',

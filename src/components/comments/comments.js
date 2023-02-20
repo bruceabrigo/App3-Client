@@ -24,14 +24,18 @@ const Comments = ({ currentUserId, commentsUrl }) => {
   }
 
   const addComment = (text, parentId) => {
+    console.log("hello", text, parentId)
     createCommentApi(text, parentId).then((comment) => {
       setBackendComments([...backendComments, comment])
       setActiveComment(null)
+    }) .catch(error => {
+      console.log(error)
     })
   }
 
 
   const updateComment = (text, commentId) => {
+    console.log(text, commentId)
     updateCommentApi(text, commentId).then(() => {
       const updatedBackendComments = backendComments.map((backendComment) => {
         if (backendComment.id === commentId) {
@@ -57,8 +61,8 @@ const Comments = ({ currentUserId, commentsUrl }) => {
     
 
   useEffect(() => {
-    getCommentsApi(commentsUrl).then((comments) => {
-      setBackendComments(comments)
+    getCommentsApi(commentsUrl).then((res) => {
+      setBackendComments(res.data.comment)
     })
   }, [])
     
