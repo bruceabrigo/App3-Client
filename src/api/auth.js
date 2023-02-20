@@ -62,16 +62,6 @@ export const allUser = () => {
 }
 //--------------------- UPDATE PROFILE --------------------
 
-// export const updateProfile = (user, userId, updatedUser) => {
-// 	return axios({
-// 		url: `${apiUrl}/update/`,
-// 		method: 'PATCH',
-// 		headers: {
-// 			Authorization: `Token token=${user.token}`,
-// 		},
-// 		data: { user: updatedUser }
-// 	})
-// } 
 
 export const updateProfile = (user, updatedUser) => {
 	console.log(`---updatedProfile API --- userId`,updatedUser._id)

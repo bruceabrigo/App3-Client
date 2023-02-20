@@ -15,12 +15,9 @@ const Home = (props) => {
 	const homeCard = (
 		<Card className="mt-4">
 			<Card.Header>
-				<h2>Welcome Back</h2>
+				<h2>Welcome Back- SignIn to Post</h2>
 			</Card.Header>
-			<Card.Body>
-				<Link to={'/sign-in'} className={'btn btn-primary m-2'}> Sign In </Link>
-				<Link to={'/sign-up'} className={'btn btn-primary m-2'}> Create an Account </Link>
-			</Card.Body>
+
 		</Card>
 	)
 

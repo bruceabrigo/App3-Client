@@ -35,46 +35,69 @@ function ShowCart(props) {
   console.log(`People you follow`, fcart.followings.length)
     
   // Showing each person the user is following
-  
-// let peopleCards = fcart.followings.map((people) => (
-//     <Card key={people._id}>
-//       <Card.Body>
-//         {people}
-//       </Card.Body>
-//     </Card>
-//   ));
 
-// let peopleCards = fcart.followings.map((people) => (
-//     <Card key={people._id}>
-//       <Card.Body>
-//         {people.name}
-//       </Card.Body>
-//     </Card>
-//   ));
-  
-let peopleCards = fcart.followings.map((people) => (
-    <Card key={people._id}>
+const cardStyle = {
+    display: 'inline-block',
+    justifyContent: 'center',
+    flexFlow: 'row wrap',
+    width: '18rem'
+}
+  //================== PEOPLE I FOLLOW ===================
+let peopleIFollowCards = fcart.followings.map((people) => (
+    <Card key={people._id} style={cardStyle}>
+      <Card.Img variant="top" src={people.profilePicture} />
       <Card.Body>
-        {people.name} {/*or {people.email}, or any other property of the people object*/}
+      <Card.Title>Name: {people.name}
+      </Card.Title>
+        <Card.Text>
+        Profession: {people.description}
+        </Card.Text>
+      </Card.Body>
+    </Card>
+
+    
+  ));
+  
+  //===================== PEOPLE WHO ARE FOLLOWING ME ==========
+  let myfollowersCards = fcart.followers.map((people) => (
+    <Card key={people._id} style={cardStyle}>
+      <Card.Img variant="top" src={people.profilePicture} />
+      <Card.Body>
+      <Card.Title>Name: {people.name}
+      </Card.Title>
+        <Card.Text>
+        Profession: {people.description}
+        </Card.Text>
       </Card.Body>
     </Card>
   ));
-  
+
+  const textStyle = {
+    textAlign: 'center'
+}
 
   
   return (
     <div>
+        
       <Card className='m-2'>
+
+        
+        <h1 style={textStyle}>FOLLOWERS - {fcart.followers.length}</h1>
+        <Card.Header></Card.Header>
+        {myfollowersCards}
+            
+
+        <h1 style={textStyle}>PEOPLE I FOLLOW - {fcart.followings.length}</h1>
         <Card.Header></Card.Header>
         <Card.Body>
-            <small>FOLLOW CART of the user</small> 
-            No. of People you follow - {fcart.followings.length} <br />
-            Owner Name: {fcart.owner} <br/>
-            People names whome you are following - {peopleCards}
+            {peopleIFollowCards}
             
         </Card.Body>
 
       </Card>
+
+      
     </div>
   )
 }

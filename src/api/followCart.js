@@ -22,14 +22,7 @@ export const userFollowCart = (fcart, id)=> {
     })
 }
 
-//================ ADDING PEOPLE AS MY FOLLOWERS ===================================
-export const followers = (fcart, user, anUserId) => {
-    return axios({
-      url: `${apiUrl}/follow/followers/${user}/${anUserId}`,
-      method: 'GET',
-      data: { fcart: fcart}
-    });
-  };
+
 
 //====================== FOLLOW OTHERS =============
 

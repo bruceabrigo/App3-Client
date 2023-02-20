@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 const linkStyle = {
 	display: 'flex',
     color: 'white',
@@ -11,8 +12,9 @@ const linkStyle = {
 const navbarStyle = {
 	display: 'flex',
     justifyContent: 'center',
-	backgroundColor: 'Red',
-	paddingLeft: '50px'
+	backgroundColor: '#8A9A5B',
+	paddingLeft: '50px',
+	fontSize: 'bold'
 }
 const authenticatedOptions = (
 	<>
@@ -59,18 +61,29 @@ const Header = ({ user }) => (
 	<Navbar  variant='light' expand='md' style={navbarStyle}>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
-                BRE-Crypt Media
+				<img src='https://cdn-icons-png.flaticon.com/128/5056/5056614.png' style={{height:'30px'}}></img>
+                Socialolite
             </Link>
+
+
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
-		<Navbar.Collapse id='basic-navbar-nav'>
-			<Nav className='ml-auto'>
-				{user && (
-					<span className='navbar-text mr-2'>Profile {user.email}</span>
+		<Navbar.Collapse id='basic-navbar-nav' >
+
+			
+			<Navbar.Brand>
+            <Link to='/profile' style={linkStyle}>
+			{user && (
+					<span className='navbar-text mr-2'>Hello {user.name}</span>
 				)}
-				{alwaysOptions}
+				{/* {alwaysOptions} */}
 				{user ? authenticatedOptions : unauthenticatedOptions}
-			</Nav>
+                
+            </Link>
+
+
+        </Navbar.Brand>
+
 		</Navbar.Collapse>
 	</Navbar>
 )
