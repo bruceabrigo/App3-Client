@@ -8,8 +8,8 @@ const messages = {
 	changePasswordFailure:'Failed to change passwords. Check your old password and try again.',
 	newPostSuccess: 'New Post Success!',
 	newPostFailure:'There was an error creating a post... Try again',
-	editPostSuccess:'There was an error updating your post... Try again later',
-	editPostFailure:'There was an error updating your post... Try again',
+	editPostSuccess:'Post saved!',
+	editPostFailure:'There was an error updating your post... Try again later',
 }
 
 module.exports = messages

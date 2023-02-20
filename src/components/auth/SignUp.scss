@@ -1,0 +1,36 @@
+.signup {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signup-card {
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    max-height: 600px;
+    overflow: hidden;
+    max-width: 1000px;
+    .left {
+        flex: 1;
+        background: linear-gradient(rgba(0, 255, 119, 0.5), rgba(5, 61, 0, 0.5)),
+        url("https://cdn.myportfolio.com/236bd5a5-dac3-43d9-aa46-b21cfd636638/da4ddc05-dcc4-48e8-af3b-b5404b9dbbb7_rw_1920.jpg?h=06c2c34bf8ada0992e64be4bfb0e0af3") center;
+        background-size: cover;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        color: white;
+        justify-content: center;
+    }
+    .right {
+        flex: 1;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        justify-content: center;
+        overflow-y: scroll;
+
+    }
+}

@@ -19,8 +19,15 @@ code {
   justify-content: center;
   text-align: center;
 }
+<<<<<<< HEAD
 button:hover {
   background-color: black;
 }
 
 
+=======
+
+.font-face-HN {
+  font-family: Arial, Helvetica, sans-serif;
+}
+>>>>>>> main

@@ -17,8 +17,83 @@ import Profile2 from "./Profile2";
 const Update = (props) => {
 
     const nav = useNavigate()
+<<<<<<< HEAD
     const { msgAlert, user, onChange, onSubmit } = props;
     console.log(`UPDATE PAGE PROPS`, props)
+=======
+
+    // const { user } = props
+    const { msgAlert, user, onChange, onSubmit } = props;
+    console.log(`UPDATE PAGE PROPS`, props)
+
+    // Setting the initial value of user
+    // const [user, setuser] = useState({
+    //     name: user.name,
+    //     email: user.email,
+    //     password: user.password,
+    //     passwordConfirmation: user.passwordConfirmation,
+    //     profilePicture: user.profilePicture,
+    //     coverPicture: user.coverPicture,
+    //     description: user.description,
+    //     _id: user._id
+
+    // })
+
+    // Update Variable for trigger refresh
+    
+
+    // console.log(`------- USER-------`, user)
+    // console.log(`----Initial user -------`, user)
+    // console.log(`---- Present User _Id---`, user._id)
+    // console.log(`===== UPDATE PROPS =====`, PROPS)
+    // useEffect(()=> {
+        
+    // })
+
+    // const onChange = (e) => {
+    //     e.persist()
+
+    //         setuser(prevuser => {
+    //         const updatedName = e.target.name
+    //         const updatedValue = e.target.value
+
+    //         let updatedUser = {
+    //             [updatedName]: updatedValue
+    //         }
+
+    //         console.log(`----New user----`, updatedUser)
+
+    //         return{
+    //             ...prevuser, ...updatedUser
+    //         }
+    //     })
+    // }
+
+
+    // const onSubmit = (e) => {
+    //     e.preventDefault()
+
+    //     console.log(`--e--`,e.target.name)
+
+
+    //         updateProfile(user, user)
+                
+    //             .then(() => {
+    //                 console.log(`user Id`,user)
+    //                 nav(`/user/${user._id}`)
+    //             })
+    //             // Create a trigger Refresh in the parent component (wher it is rendered)
+    //             // That is the updates here are rendered in Show Profile
+    //             // So we need to build it in the parent
+    //             // .then(()=> triggerRefresh())
+                    
+       
+    // }
+
+
+
+ 
+>>>>>>> main
     console.log(`UPDATE PAGE -- props.user---`, props.user)
 
     return(
@@ -120,6 +195,5 @@ const Update = (props) => {
 }
 
 export default Update
-
 
 

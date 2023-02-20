@@ -14,7 +14,10 @@ import LoadingScreen from '../shared/LoadingScreen'
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 const Profile2 = (props) => {
 
   const nav = useNavigate()
@@ -79,10 +82,17 @@ const Profile2 = (props) => {
                   console.log(`user Id`,user)
                   handleClose()
               })
+<<<<<<< HEAD
+=======
+              // Create a trigger Refresh in the parent component (wher it is rendered)
+              // That is the updates here are rendered in Show Profile
+              // So we need to build it in the parent
+>>>>>>> main
               .then(()=> setUpdated(prev=> !prev))
                   
      
   }
+<<<<<<< HEAD
   const imgStyle= {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -91,6 +101,8 @@ const Profile2 = (props) => {
     maxHeight: '90rem',
     minHeight: '90'
   }
+=======
+>>>>>>> main
 
 
 
@@ -98,6 +110,7 @@ const Profile2 = (props) => {
     return <LoadingScreen/>
 }
   return (
+<<<<<<< HEAD
     <>
     <Card className="bg-dark text-white">
   <Card.Img 
@@ -134,6 +147,35 @@ const Profile2 = (props) => {
 
       
     
+=======
+    <div>
+      <Card>
+        User Profile 2
+        {props.user._id}
+        <Card.Img id='imagecover' variant="top" src={user.coverPicture} />
+      
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={user.profilePicture} />
+          <Card.Body>
+            <Card.Title>{user.name}</Card.Title>
+            <Card.Text>
+              {user.description}
+            </Card.Text>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item>Location: {user.city}</ListGroup.Item>
+            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          </ListGroup>
+          <Card.Body>
+            <Link to={`/update/${user._id}`} >Update Details</Link> <br />
+            <Link to={`/profile`}>view Profile</Link>
+          </Card.Body>
+        </Card>
+        <Button onClick={()=> setShow(true)}></Button>
+      </Card>
+
+>>>>>>> main
 
 
 
@@ -153,6 +195,7 @@ const Profile2 = (props) => {
             </Modal>
 
     </div>
+<<<<<<< HEAD
   
   </Card.ImgOverlay>
 </Card>
@@ -164,3 +207,9 @@ const Profile2 = (props) => {
 }
 
 export default Profile2
+=======
+  )
+}
+
+export default Profile2
+>>>>>>> main

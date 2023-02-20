@@ -1,14 +1,23 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 import React from 'react'
 import { allUser } from '../../api/auth'
 import { useState, useEffect } from 'react'
 import LoadingScreen from '../shared/LoadingScreen'
+<<<<<<< HEAD
 import { Card, Container, Button, Col } from "react-bootstrap"
 import { followings } from '../../api/followCart'
 import { followers } from '../../api/followCart'
 import Row from 'react-bootstrap/Row'
 import { useNavigate } from 'react-router-dom'
 
+=======
+import { Card, Container, Button} from "react-bootstrap"
+import { followings } from '../../api/followCart'
+import { followers } from '../../api/followCart'
+>>>>>>> main
 
 
 function AllUsers(props) {
@@ -16,11 +25,18 @@ function AllUsers(props) {
     const {user, fcart} = props
     const [users, setUsers] = useState(null)
     console.log(`F cart`, fcart)
+<<<<<<< HEAD
     const nav = useNavigate()
+=======
+>>>>>>> main
 
     useEffect(()=> {
     // Making API CAll
         allUser()
+<<<<<<< HEAD
+=======
+            // .then(()=> setUsers())
+>>>>>>> main
             .then(res=> setUsers(res.data.users))
 
     }, [])
@@ -35,6 +51,7 @@ function AllUsers(props) {
         return <p>Create post or follow new users!</p>
     }
 
+<<<<<<< HEAD
     const cardStyle = {
           display: 'inline-block',
           justifyContent: 'center',
@@ -91,6 +108,61 @@ function AllUsers(props) {
         </Container>
       </div>
     )
+=======
+
+    const allUsersContainer = users.map(all => (
+        <Card key={all._id}>
+            <Card.Body>
+                    <Card.Title>{all.name}</Card.Title>
+                    All._id = {all._id}
+                    fcart={fcart}
+
+                    {/* {
+                    fcart.followings.includes(all._id) 
+                    ? 
+                    (
+                    <Button className='text-submit'>Following</Button>
+                    ) : 
+                    (
+                    <Button
+                        onClick={() => {
+                        followings(fcart, user._id, all._id);
+                        // .then(res=> console.log(`This is res`,res))
+                        }}
+                    >
+                        Follow
+                    </Button>
+                    )} */}
+
+                    
+                    <Button
+                        onClick={() => {
+                        followings(fcart, user._id, all._id)
+                        // followers(fcart, user._id, all._id)
+                        // .then(res=> console.log(`This is res`,res))
+                        }}
+                    >
+                        Follow
+                    </Button>
+
+            </Card.Body>
+
+
+        </Card>
+        
+    ))
+  return (
+
+
+    <div>
+        
+       <Container>
+            {allUsersContainer}
+        </Container>
+      
+    </div>
+  )
+>>>>>>> main
 }
 
 export default AllUsers
