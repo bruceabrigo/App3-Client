@@ -23,25 +23,26 @@ const ChangePassword = (props) => {
 
     const passwords = { oldPassword, newPassword, name }
 
-    changePassword(passwords, user)
-      .then(() =>
-        msgAlert({
-          heading: 'Change Password Success',
-          message: messages.changePasswordSuccess,
-          variant: 'success',
-        })
-      )
-      .then(() => navigate('/'))
-      .catch((error) => {
-        setOldPassword('')
-        setNewPassword('')
-        msgAlert({
-          heading: 'Change Password Failed with error: ' + error.message,
-          message: messages.changePasswordFailure,
-          variant: 'danger',
-        })
-      })
-  }
+		changePassword(passwords, user)
+			.then(() =>
+				msgAlert({
+					heading: 'Change Password Success',
+					message: messages.changePasswordSuccess,
+					variant: 'success',
+				})
+			)
+			.then(() => navigate('/'))
+			.catch((error) => {
+				setOldPassword('')
+                setNewPassword('')
+				msgAlert({
+					heading: 'Change Password Failed with error: ' + error.message,
+					message: messages.changePasswordFailure,
+					variant: 'danger',
+				})
+			})
+	}
+
 
   return (
     <>

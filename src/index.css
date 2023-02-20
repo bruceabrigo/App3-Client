@@ -12,7 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+#imagecover{
+  max-height: 20rem;
+  max-width: 90rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 
 .font-face-HN {
   font-family: Arial, Helvetica, sans-serif;

@@ -11,7 +11,6 @@ import './SignUp.scss'
 
 
 const SignUp = (props) => {
-    // Seeting up Initial stage for each credential
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -158,7 +157,5 @@ const SignUp = (props) => {
     )
 
 }
-
-
 
 export default SignUp

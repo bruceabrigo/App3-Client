@@ -45,4 +45,5 @@ export const deletePost = (user, contentId) => {
             Authorization: `Token token=${user.token}`
         }
     })
+
 }

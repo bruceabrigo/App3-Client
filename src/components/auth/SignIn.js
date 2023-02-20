@@ -45,7 +45,6 @@ const SignIn = (props) => {
 				})
 			)
 			.then(() => navigate('/view-profile'))
-            // .then(()=> navigate('/update'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')

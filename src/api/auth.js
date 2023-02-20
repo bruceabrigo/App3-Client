@@ -4,6 +4,9 @@ import axios from 'axios'
 // Making calls to Backend - API Calls
 
 //--------------------- SIGN UP --------------------
+// Making calls to Backend - API Calls
+
+//--------------------- SIGN UP --------------------
 export const signUp = (credentials) => {
 	return axios({
 		method: 'POST',
@@ -19,11 +22,18 @@ export const signUp = (credentials) => {
 				description: credentials.description,
 				active: credentials.active
 
+				name: credentials.name,
+				profilePicture: credentials.profilePicture,
+				coverPicture: credentials.coverPicture,
+				description: credentials.description,
+				active: credentials.active
+
 			},
 		},
 	})
 }
 
+//--------------------- SIGN IN --------------------
 //--------------------- SIGN IN --------------------
 export const signIn = (credentials) => {
 	return axios({
@@ -38,6 +48,7 @@ export const signIn = (credentials) => {
 	})
 }
 
+//--------------------- SIGN OUT --------------------
 //--------------------- SIGN OUT --------------------
 export const signOut = (user) => {
 	return axios({
@@ -85,6 +96,7 @@ export const changePassword = (passwords, user) => {
 			passwords: {
 				old: passwords.oldPassword,
 				new: passwords.newPassword,
+				
 				
 			},
 		},

@@ -24,6 +24,7 @@ import ShowContent from './components/Content/ShowContent'
 
 
 
+
 const App = () => {
 
   document.body.style = 'background: #f5f5f5;';
@@ -200,17 +201,16 @@ const App = () => {
 						</RequireAuth>}
 					/>
 				</Routes>
-					{msgAlerts.map((msgAlert) => (
-						<AutoDismissAlert
-							key={msgAlert.id}
-							heading={msgAlert.heading}
-							variant={msgAlert.variant}
-							message={msgAlert.message}
-							id={msgAlert.id}
-							deleteAlert={deleteAlert}
-						/>
-					))}
-
+				{msgAlerts.map((msgAlert) => (
+					<AutoDismissAlert
+						key={msgAlert.id}
+						heading={msgAlert.heading}
+						variant={msgAlert.variant}
+						message={msgAlert.message}
+						id={msgAlert.id}
+						deleteAlert={deleteAlert}
+					/>
+				))}
 			</Fragment>
 		)
 }
