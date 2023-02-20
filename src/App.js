@@ -1,5 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -14,29 +14,66 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import Update from './components/auth/Update'
 import ChangePassword from './components/auth/ChangePassword'
+<<<<<<< HEAD
+
+// Import ShowProfile
+import ShowProfile from './components/auth/ShowProfile' 
+import AllUsers from './components/auth/AllUsers'
+
+
+//------------------ BRUCE----------------- (21,22, 114 and below-2 routes)
+=======
 import ShowProfile from './components/auth/showProfile'
 import AllUsers from './components/auth/AllUsers'
 import Profile2 from './components/auth/Profile2'
 import ShowCart from './components/FollowCart/ShowCart'
 /* -------------- Content Routes -------------- */ 
+>>>>>>> main
 import NewPost from './components/Content/CreatePost'
 import ShowContent from './components/Content/ShowContent'
+import Profile2 from './components/auth/Profile2'
+import ShowCart from './components/FollowCart.js/ShowCart'
 
 
+
+
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 
 
 const App = () => {
 
+<<<<<<< HEAD
+	// USE STATE FOR ALL ITEMS IN BACKEND
+=======
   document.body.style = 'background: #f5f5f5;';
 
+>>>>>>> main
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
   const [update, setUpdate] = useState(false)
   const [fcart, setFCart] = useState({
+<<<<<<< HEAD
+        owner: user,
+        followers: [],
+        followings: []
+  })
+
+  //////// UER EFFECT /////////////
+  useEffect(()=> {
+
+}, [update])
+
+
+=======
     owner: user,
     followers: [],
     followings: []
 })
+>>>>>>> main
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -70,7 +107,7 @@ const App = () => {
 						/>
 						<Route
 							path='/sign-in'
-							element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+							element={<SignIn msgAlert={msgAlert} setUser={setUser} user={user} />}
 						/>
 
 						<Route
@@ -84,12 +121,30 @@ const App = () => {
 {/* ----------------- User Routes */}
 {/* 
 						<Route
+<<<<<<< HEAD
+							path='/users'
+							element={
+							<RequireAuth user={user}>
+								<AllUsers 
+								user={user}
+								setUser={setUser}
+								// triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
+							</RequireAuth>
+						}
+						/>
+
+
+						<Route
+							path='/profile'
+=======
 							path='/view-profile'
+>>>>>>> main
 							element={
 							<RequireAuth user={user}>
 								<ShowProfile 
 								user={user}
-								triggerRefresh={() => setUpdate(prev => !prev)}
+								// triggerRefresh={() => setUpdate(prev => !prev)}
 								 />
 							</RequireAuth>
 						}
@@ -103,10 +158,55 @@ const App = () => {
 								msgAlert={msgAlert} 
 								user={user}
 								triggerRefresh={() => setUpdate(prev => !prev)}
+								
 								 />
 							</RequireAuth>
 							}
 						/>
+
+
+						<Route
+							path='/user/:userId'
+							element={
+							<RequireAuth user={user}>
+								<Profile2 
+								msgAlert={msgAlert} 
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								update={update}
+							
+								 />
+							</RequireAuth>
+							}
+						/>
+
+						{/* <Route
+							path='/user/:userId'
+							element={
+							<RequireAuth user={user}>
+								<Profile2 
+								msgAlert={msgAlert} 
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
+							</RequireAuth>
+							}
+						/> */}
+
+						<Route
+							path='/followers/:userId'
+							element={
+							
+								<ShowCart 
+								msgAlert={msgAlert} 
+								fcart={fcart}
+								user={user}
+								triggerRefresh={() => setUpdate(prev => !prev)}
+								 />
+							
+							}
+						/>
+
 
 						<Route
 							path='/change-password'
@@ -186,6 +286,18 @@ const App = () => {
 
 {/* ------------------ Content Routes */}
 					
+<<<<<<< HEAD
+
+
+
+
+
+
+				
+					<Route path='/' element={<Home msgAlert={msgAlert} user={user} setUser={setUser}/>} />
+
+=======
+>>>>>>> main
 					<Route
 						path='/edit-post/:id'
 						element={
@@ -200,6 +312,48 @@ const App = () => {
 							<NewPost msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 					/>
+<<<<<<< HEAD
+				
+
+
+
+					
+
+
+          <Route
+            path='/sign-out'
+            element={
+              <RequireAuth user={user}>
+                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path='/change-password'
+            element={
+              <RequireAuth user={user}>
+                <ChangePassword msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+          <Route
+            path='/create-post'
+            element={
+              <RequireAuth user={user}>
+                <NewPost msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+          <Route
+            path='/edit-post/:id'
+            element={
+              <RequireAuth user={user}>
+                <ShowContent msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+		           
+		  
+
+=======
+>>>>>>> main
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert

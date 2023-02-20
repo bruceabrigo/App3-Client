@@ -14,6 +14,10 @@ import LoadingScreen from '../shared/LoadingScreen'
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 const Profile2 = (props) => {
 
   const nav = useNavigate()
@@ -78,13 +82,27 @@ const Profile2 = (props) => {
                   console.log(`user Id`,user)
                   handleClose()
               })
+<<<<<<< HEAD
+=======
               // Create a trigger Refresh in the parent component (wher it is rendered)
               // That is the updates here are rendered in Show Profile
               // So we need to build it in the parent
+>>>>>>> main
               .then(()=> setUpdated(prev=> !prev))
                   
      
   }
+<<<<<<< HEAD
+  const imgStyle= {
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+    maxHeight: '90rem',
+    minHeight: '90'
+  }
+=======
+>>>>>>> main
 
 
 
@@ -92,6 +110,44 @@ const Profile2 = (props) => {
     return <LoadingScreen/>
 }
   return (
+<<<<<<< HEAD
+    <>
+    <Card className="bg-dark text-white">
+  <Card.Img 
+    src={user.coverPicture}
+    alt="Card image" 
+    style={{ objectFit: 'cover', maxHeight: '90vh', minHeight:'90vh' }}
+  />
+  <Card.ImgOverlay>
+
+  <div style={{ display: 'flex', flexDirection: 'row', justifyContent:'center' }}>
+      <Card>
+        
+        <Card style={{ width: '18rem'}}>
+        <Card.Body style={{textAligh: 'left'}}>
+          <Card.Img variant="top" src={user.profilePicture} />
+          <h1 style={{color: 'black',  textAlign:'center' }}>{user.name}</h1>
+            <Card.Text>
+             Profession:  {user.description}
+            </Card.Text>
+          
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item>Location: {user.city}</ListGroup.Item>
+            <ListGroup.Item>Email: {user.email}</ListGroup.Item>
+            <ListGroup.Item>Profession: {user.description}</ListGroup.Item>
+            
+            <Link to='/' style={{textAlign: 'center'}}>View All Post</Link>
+            
+          </ListGroup >
+          </Card.Body>
+          
+        </Card>
+        <Button style={{backgroundColor: 'red'}} onClick={()=> setShow(true)}>Update Profile</Button>
+      </Card>
+
+      
+    
+=======
     <div>
       <Card>
         User Profile 2
@@ -119,6 +175,7 @@ const Profile2 = (props) => {
         <Button onClick={()=> setShow(true)}></Button>
       </Card>
 
+>>>>>>> main
 
 
 
@@ -138,7 +195,21 @@ const Profile2 = (props) => {
             </Modal>
 
     </div>
+<<<<<<< HEAD
+  
+  </Card.ImgOverlay>
+</Card>
+
+
+    
+    </>
   )
 }
 
 export default Profile2
+=======
+  )
+}
+
+export default Profile2
+>>>>>>> main

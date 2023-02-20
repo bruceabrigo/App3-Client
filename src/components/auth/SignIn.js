@@ -9,29 +9,17 @@ import Button from 'react-bootstrap/Button'
 import './SignIn.scss'
 
 const SignIn = (props) => {
-	// constructor(props) {
-	// 	super(props)
-
-	// 	this.state = {
-	// 		email: '',
-	// 		password: '',
-	// 	}
-	// }
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
 
     const navigate = useNavigate()
 
-	// handleChange = (event) =>
-	// 	this.setState({
-	// 		[event.target.name]: event.target.value,
-	// 	})
-
 	const onSignIn = (event) => {
 		event.preventDefault()
         console.log('the props', props)
-		const { msgAlert, setUser } = props
+		const { msgAlert, setUser, user } = props
+        console.log(`++PROPS SIGN IN++`, props)
 
         const credentials = {email, password}
 
@@ -44,7 +32,13 @@ const SignIn = (props) => {
 					variant: 'success',
 				})
 			)
+<<<<<<< HEAD
+			// .then(() => navigate('/:userId'))
+            .then(()=> navigate(`/profile`))
+            // .then(()=> navigate('/update'))
+=======
 			.then(() => navigate('/view-profile'))
+>>>>>>> main
 			.catch((error) => {
                 setEmail('')
                 setPassword('')

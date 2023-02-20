@@ -66,10 +66,19 @@ export const userProfile = (id) => {
 	return axios(`${apiUrl}/user/${id}`)
 }
 
-//--------------------- UPDATE PROFILE --------------------
+//--------------------- INDEX USERS  --------------------
+
 export const allUser = () => {
     return axios(`${apiUrl}/users`)
 }
+//--------------------- UPDATE PROFILE --------------------
+<<<<<<< HEAD
+
+=======
+export const allUser = () => {
+    return axios(`${apiUrl}/users`)
+}
+>>>>>>> main
 
 export const updateProfile = (user, updatedUser) => {
 	console.log(`---updatedProfile API --- userId`,updatedUser._id)

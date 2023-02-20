@@ -46,4 +46,11 @@ export const deletePost = (user, contentId) => {
         }
     })
 
+<<<<<<< HEAD
 }
+
+
+
+=======
+}
+>>>>>>> main

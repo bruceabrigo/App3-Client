@@ -1,82 +1,3 @@
-// import React from 'react'
-// // Import API Call
-// import { userProfile } from '../../api/auth'
-// import { useState, useEffect } from 'react'
-// import { Card, Container, Button } from "react-bootstrap"
-// import LoadingScreen from '../shared/LoadingScreen'
-// import { Link } from 'react-router-dom'
-// import messages from '../shared/AutoDismissAlert/messages'
-// // Import teh child component
-// import Update from './Update'
-// import App from '../../App'
-
-// import ListGroup from 'react-bootstrap/ListGroup'
-// // import Update from './Update'
-
-
-// const ShowProfile = (props) => {
-
-//   const [update, setUpdate] = useState(false)
-//     // Define user
-
-//     const { user, triggerRefresh } = props
-//     console.log(`---------- USER PROP ---------`,props)
-//     // // console.log(`User Name`, user.name)
-//     if(!user){
-//         return <p> <LoadingScreen /> </p>
-//     }
-    
-    
-// // 
-  
-  
-//     return (
-//     <>
-//       <Card>
-//           User Profile
-//           {user._id}
-//           <Card.Img id='imagecover' variant="top" src={user.coverPicture} />
-        
-//       <Card style={{ width: '18rem' }}>
-//         <Card.Img variant="top" src={user.profilePicture} />
-//         <Card.Body>
-//           <Card.Title>{user.name}</Card.Title>
-//           <Card.Text>
-//             {user.description}
-//           </Card.Text>
-//         </Card.Body>
-//         <ListGroup className="list-group-flush">
-//           <ListGroup.Item>Location: {user.city}</ListGroup.Item>
-//           <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-//           <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-//         </ListGroup>
-//         <Card.Body>
-
-//         <Link to={`/update/${user._id}`}>Update Details</Link> <br />
-//           <Card.Link href="#">Another Link</Card.Link>
-//         </Card.Body>
-
-        
-      
-//       </Card>
-//       </Card>
-
-//       {/* <Update 
-      
-//           // msgAlert={msgAlert}
-//           user={user}
-//           triggerRefresh={() => setUpdate(prev => !prev)}
-//       /> */}
-
-//       <Update user={user} triggerRefresh={triggerRefresh} />
-        
-//     </>
-//   )
-// }
-
-// export default ShowProfile
-
-
 
 import React from 'react'
 // Import API Call
@@ -86,65 +7,72 @@ import { Card, Container, Button } from "react-bootstrap"
 import LoadingScreen from '../shared/LoadingScreen'
 import { Link } from 'react-router-dom'
 import messages from '../shared/AutoDismissAlert/messages'
-// Import teh child component
 import Update from './Update'
+import { useNavigate } from 'react-router-dom'
+// Render FollowCart Here
+import ShowCart from '../FollowCart.js/ShowCart'
+
+// Import teh child component
+
+
 import App from '../../App'
-import { Navigate } from 'react-router-dom'
 
 
 import ListGroup from 'react-bootstrap/ListGroup'
-// import Update from './Update'
-
 
 const ShowProfile = (props) => {
 
-  const [update, setUpdate] = useState(false)
+ 
   // Define user
-  // const nav = Navigate()
-  const { user, triggerRefresh } = props
+  const nav = useNavigate()
+  const { user, fcart } = props
 
-  console.log(`---------- USER PROP ---------`,props)
+
+  // console.log(`---------- USER PROP ---------`,props)
 
   console.log(`--SHOW PAGE PROPS ---`, props)
 
 
+  const imgStyle= {
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+    maxHeight: '80rem',
+  }
 
-  userProfile(user._id)
-    .then(()=> Navigate(`${user._id}`))
-    .then(()=> triggerRefresh())
-
+  
 
   if(!user){
     return <p> <LoadingScreen /> </p>
   }
   
+  
   return (
     <>
-      <Card>
-        User Profile
-        {user._id}
-        <Card.Img id='imagecover' variant="top" src={user.coverPicture} />
+
+<Card className="bg-dark text-white">
+  <Card.Img 
+    src='https://media.istockphoto.com/id/95340984/vector/colorful-background-rainbow-illustration.jpg?s=612x612&w=0&k=20&c=WJOGdCcwz6-zWVyIK2mmH4PtVHX1S02NYHlCtJPm3LA='
+    alt="Card image" 
+    style={{ objectFit: 'cover', maxHeight: '90vh', minHeight:'90vh' }}
+  />
+  <Card.ImgOverlay>
+  <h3 style={{ color: 'black', fontSize: '50px', textAlign: 'center' }}>Welcome Back {user.name}</h3>
+
+    
+    <div className="d-grid gap-2">
+  <Button style={{backgroundColor: '#8A9A5B'}} size="lg" onClick={()=> nav(`/user/${user._id}`)}>My Profile</Button>
+  
+  <Button style={{backgroundColor: '#8A9A5B'}} size="lg" onClick={()=> nav(`/followers/${user._id}`)}>Followers</Button>
+
+  <Button style={{backgroundColor: '#8A9A5B'}} size="lg" onClick={()=> nav(`/users`)}>Other Profiles</Button>
+  </div>
+  </Card.ImgOverlay>
+</Card>
+
+
       
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={user.profilePicture} />
-          <Card.Body>
-            <Card.Title>{user.name}</Card.Title>
-            <Card.Text>
-              {user.description}
-            </Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item>Location: {user.city}</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-          </ListGroup>
-          <Card.Body>
-            <Link onClick={() => setUpdate(true)}>Update Details</Link> <br />
-            <Card.Link href="#">Another Link</Card.Link>
-          </Card.Body>
-        </Card>
-      </Card>
-      {update && <div className="update-form-container"><Update user={user} triggerRefresh={() => setUpdate(false)} /></div>}
     </>
   )
 }

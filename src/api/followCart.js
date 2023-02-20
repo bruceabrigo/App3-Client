@@ -22,6 +22,9 @@ export const userFollowCart = (fcart, id)=> {
     })
 }
 
+<<<<<<< HEAD
+
+=======
 //================ ADDING PEOPLE AS MY FOLLOWERS ===================================
 export const followers = (fcart, user, anUserId) => {
     return axios({
@@ -30,6 +33,7 @@ export const followers = (fcart, user, anUserId) => {
       data: { fcart: fcart}
     });
   };
+>>>>>>> main
 
 //====================== FOLLOW OTHERS =============
 
@@ -40,3 +44,7 @@ export const followers = (fcart, user, anUserId) => {
         data: { fcart: fcart}
     })
   }
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
