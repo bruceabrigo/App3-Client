@@ -79,6 +79,7 @@ const ContentIndex = (props) => {
 {/* --------- Comment Modal --------- */}
                         <Button
                             onClick={() => setCommentModalShow(true)}
+                            variant='dark'
                         >
                             Comment
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-left-text" viewBox="0 0 16 16">

@@ -83,7 +83,7 @@ const Home = (props) => {
 			</Card.Header>
 			<Card.Body>
 				<Link to={'/sign-in'} className={'btn btn-primary m-2'}> Sign In </Link>
-				<Link to={'/sign-up'} className={'btn btn-primary m-2'}> Create an Account </Link>
+				<Link to={'/sign-up'} className={'btn btn-dark m-2'}> Create an Account </Link>
 			</Card.Body>
 		</Card>
 	)
