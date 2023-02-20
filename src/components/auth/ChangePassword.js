@@ -49,7 +49,7 @@ const ChangePassword = (props) => {
             <div className='password-card'>
                 <div className='left'>
                     <h1>Yeah, we're judging...</h1>
-                    <p>Looks like you made a terrible password... Don't worry, you can change it! We're judging super hard tho *winks intensly* </p>
+                    <p>Looks like you made a terrible password... Don't worry, you can change it! Fill out the form to change your password, and you'll be on your way. </p>
                 </div>
                 <div className='right'>
                     <h3>Change Password</h3>

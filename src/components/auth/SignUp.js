@@ -136,7 +136,7 @@ const SignUp = (props) => {
                                     onChange={e => setProfilePicture(e.target.value)}
                                 />
                             </Form.Group>
-                            <Form.Group controlId='coverPicture'>
+                            {/* <Form.Group controlId='coverPicture'>
                                 <Form.Label>Cover Picture</Form.Label>
                                 <Form.Control
                                     
@@ -146,7 +146,7 @@ const SignUp = (props) => {
                                     placeholder='coverPicture'
                                     onChange={e => setCoverPicture(e.target.value)}
                                 />
-                            </Form.Group>
+                            </Form.Group> */}
                             <Button className='mt-2' variant='primary' type='submit'>
                                 Submit
                             </Button>
