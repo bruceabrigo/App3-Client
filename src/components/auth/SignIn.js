@@ -32,13 +32,7 @@ const SignIn = (props) => {
 					variant: 'success',
 				})
 			)
-<<<<<<< HEAD
-			// .then(() => navigate('/:userId'))
-            .then(()=> navigate(`/profile`))
-            // .then(()=> navigate('/update'))
-=======
 			.then(() => navigate('/view-profile'))
->>>>>>> main
 			.catch((error) => {
                 setEmail('')
                 setPassword('')

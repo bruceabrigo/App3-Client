@@ -2,13 +2,9 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
-<<<<<<< HEAD
-import { Route } from 'react-router-dom'
-=======
 import WebFont from 'webfontloader'
 import { useEffect } from 'react'
 
->>>>>>> main
 const linkStyle = {
 	display: 'flex',
     color: 'white',
@@ -17,15 +13,8 @@ const linkStyle = {
 
 const navbarStyle = {
 	display: 'flex',
-<<<<<<< HEAD
-    justifyContent: 'center',
-	backgroundColor: '#8A9A5B',
-	paddingLeft: '50px',
-	fontSize: 'bold'
-=======
 	backgroundColor: '#8A9A5B',
 	paddingLeft: '50px'
->>>>>>> main
 }
 
 

@@ -17,10 +17,6 @@ import Profile2 from "./Profile2";
 const Update = (props) => {
 
     const nav = useNavigate()
-<<<<<<< HEAD
-    const { msgAlert, user, onChange, onSubmit } = props;
-    console.log(`UPDATE PAGE PROPS`, props)
-=======
 
     // const { user } = props
     const { msgAlert, user, onChange, onSubmit } = props;
@@ -93,7 +89,6 @@ const Update = (props) => {
 
 
  
->>>>>>> main
     console.log(`UPDATE PAGE -- props.user---`, props.user)
 
     return(

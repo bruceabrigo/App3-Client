@@ -81,14 +81,10 @@ const Home = (props) => {
 			<Card.Header>
 				<h2>Welcome Back- SignIn to Post</h2>
 			</Card.Header>
-<<<<<<< HEAD
-
-=======
 			<Card.Body>
 				<Link to={'/sign-in'} className={'btn btn-primary m-2'}> Sign In </Link>
 				<Link to={'/sign-up'} className={'btn btn-dark m-2'}> Create an Account </Link>
 			</Card.Body>
->>>>>>> main
 		</Card>
 	)
 	if(!user) {

@@ -21,13 +21,6 @@ export const signUp = (credentials) => {
 				coverPicture: credentials.coverPicture,
 				description: credentials.description,
 				active: credentials.active
-
-				name: credentials.name,
-				profilePicture: credentials.profilePicture,
-				coverPicture: credentials.coverPicture,
-				description: credentials.description,
-				active: credentials.active
-
 			},
 		},
 	})
@@ -67,18 +60,10 @@ export const userProfile = (id) => {
 }
 
 //--------------------- INDEX USERS  --------------------
-
-export const allUser = () => {
-    return axios(`${apiUrl}/users`)
-}
 //--------------------- UPDATE PROFILE --------------------
-<<<<<<< HEAD
-
-=======
 export const allUser = () => {
     return axios(`${apiUrl}/users`)
 }
->>>>>>> main
 
 export const updateProfile = (user, updatedUser) => {
 	console.log(`---updatedProfile API --- userId`,updatedUser._id)
