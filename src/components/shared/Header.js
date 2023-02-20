@@ -2,6 +2,9 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import WebFont from 'webfontloader'
+import { useEffect } from 'react'
+
 const linkStyle = {
 	display: 'flex',
     color: 'white',
@@ -10,12 +13,19 @@ const linkStyle = {
 
 const navbarStyle = {
 	display: 'flex',
-    justifyContent: 'center',
-	backgroundColor: 'Red',
+	backgroundColor: '#8A9A5B',
 	paddingLeft: '50px'
 }
+
+
+
 const authenticatedOptions = (
 	<>
+		<Nav.Item className='m-2'>
+			<Link to={'/view-profile'} style={linkStyle}>
+				View Profile
+			</Link>
+		</Nav.Item >
 		<Nav.Item className='m-2'>
 			<Link to='create-post' style={linkStyle}>
 				Make Post
@@ -56,7 +66,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar  variant='light' expand='md' style={navbarStyle}>
+	<Navbar  variant='light' expand='md' style={navbarStyle} >
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
                 BRE-Crypt Media

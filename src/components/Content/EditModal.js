@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import ContentForm from "../shared/NewPostForm";
 import messages from "../shared/AutoDismissAlert/messages";
+import LoadingScreen from "../shared/LoadingScreen";
+
 
 const EditModal = (props) => {
-    const {user, show, handleClose, editPost, msgAlert} = props
+    const {user, show, handleClose, editPost, msgAlert, triggerRefresh} = props
     console.log('props in edit: ', props)
 
     const [content, setContent] = useState(props.content)
@@ -13,16 +15,18 @@ const EditModal = (props) => {
     const onChange = (e) => {
         e.persist()
 
-        setContent(prevPost => {
+        setContent(prevContent => {
             const editedPost = e.target.name
-            let updatedValue = e.target.updatedValue
+            let updatedValue = e.target.value
 
             const editedMaterial = {
-                [editedPost] : updatedValue()
+                [editedPost] : updatedValue
             }
 
+            console.log('updated in content: ', editedMaterial)
+
             return {
-                ...prevPost, ...editedMaterial
+                ...prevContent, ...editedMaterial
             }
         })
     }
@@ -39,6 +43,7 @@ const EditModal = (props) => {
                     variant: 'success'
                 })
             })
+            .then(() => triggerRefresh())
             .catch(() => {
                 msgAlert({
                     heading: 'Error with edit',
@@ -46,6 +51,10 @@ const EditModal = (props) => {
                     variant: 'danger'
                 })
             })
+    }
+    
+    if(!content) {
+        return <LoadingScreen />
     }
 
     return (
@@ -56,7 +65,6 @@ const EditModal = (props) => {
                         content={content}
                         handleChange={onChange}
                         handleSubmit={onSubmit}
-                        heading='Edit Post'
                     />
                 </Modal.Body>
         </Modal>
