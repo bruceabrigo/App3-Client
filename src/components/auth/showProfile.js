@@ -40,7 +40,7 @@ const ShowProfile = (props) => {
   return (
     <>
       <Link to={`/update/${user._id}`}>Update Profile</Link><br/>
-      <Link to={`/user/${user._id}`}>view Profile</Link> 
+      <Link to={`/view-profile`}>view Profile</Link> 
       <br/>
       <Link to={`/followers/${user._id}`}>Followers</Link><br/>
       <Link to={`/users`}>Other Profiles</Link>
