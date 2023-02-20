@@ -10,6 +10,7 @@ import Row from 'react-bootstrap/Row'
 import { useNavigate } from 'react-router-dom'
 
 
+
 function AllUsers(props) {
 
     const {user, fcart} = props
@@ -64,7 +65,7 @@ function AllUsers(props) {
             </Card.Text>
 
             <Card.Footer>
-            <small className="text-muted">Last updated {new Date().toLocaleDateString('en-GB', {year: 'numeric', month: '2-digit', day: '2-digit'})}</small>
+            <small className="text-muted">Last seen {new Date().toLocaleDateString('en-GB', {year: 'numeric', month: '2-digit', day: '2-digit'})}</small>
 
             </Card.Footer>
 

@@ -40,42 +40,23 @@ BONUS
 
 # Wireframes
 
-
-1) Website Landing Screen 
-(i) Login or Signup
-
-=======
-1) Website Landing Screen
-Login
-  - Initial landing page will prompt a retuning user to Log-In or Sign Up
-
-![Alt text](img/Screen_Shot_2023-02-11_at_2.54.48_PM.png)
-Sign Up
-  - If a user is new to the platform, they have the ability to log in.
-![Alt text](img/Screen_Shot_2023-02-11_at_3.09.14_PM.png)
+## USER Screens
 
 
-2) Home Screen
+(1) User Profile
+![Alt text](img/UserProfile.png)
 
+(2) User Dashboard
+![Alt text](img/UserDashboard.png)
 
+(3) Followers & Followings
+![Alt text](img/Followings&Folowers.png)
 
-Main Page of Social Media App
-  - User can see posts and make searches
-
-![Alt text](img/BRE-Crypt.jpg)
-User Page: 
-  - Upload profile images, password, and nicknames
-![Alt text](img/BRE-Crypt2.jpg)
-Direct Message Feature
-![Alt text](img/BRE-Crypt3.jpg)
+(4) All User Profiles
+![Alt text](img/AllUsers.png)
 
 # Models - ERD
 
 ![Alt text](img/App3-API.jpeg)
 
 
-###### upstream/main
-###### main
-
-
-test test test 

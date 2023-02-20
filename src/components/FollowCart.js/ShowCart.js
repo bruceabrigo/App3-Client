@@ -88,7 +88,7 @@ let peopleIFollowCards = fcart.followings.map((people) => (
         {myfollowersCards}
             
 
-        <h1 style={textStyle}>PEOPLE I FOLLOW - {fcart.followings.length}</h1>
+        <h1 style={textStyle}>FOLLOWINGS - {fcart.followings.length}</h1>
         <Card.Header></Card.Header>
         <Card.Body>
             {peopleIFollowCards}
