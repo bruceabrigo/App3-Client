@@ -70,7 +70,7 @@ const Header = ({ user }) => (
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
 				<img src='https://cdn-icons-png.flaticon.com/128/5056/5056614.png' style={{height:'30px'}}></img>
-                Socialolite
+                Socialite
             </Link>
 
 
