@@ -14,10 +14,10 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import Update from './components/auth/Update'
 import ChangePassword from './components/auth/ChangePassword'
-import ShowProfile from './components/auth/ShowProfile'
+import ShowProfile from './components/auth/showProfile'
 import AllUsers from './components/auth/AllUsers'
 import Profile2 from './components/auth/Profile2'
-import ShowCart from './components/FollowCart/ShowCart'
+import ShowCart from './components/FollowCart.js/ShowCart'
 /* -------------- Content Routes -------------- */ 
 import NewPost from './components/Content/CreatePost'
 import ShowContent from './components/Content/ShowContent'
@@ -175,8 +175,6 @@ const App = () => {
 							</RequireAuth>
 							}
 						/>
-
-
 						<Route
 							path='/view-profile'
 							element={

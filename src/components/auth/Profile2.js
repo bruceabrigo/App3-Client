@@ -14,6 +14,7 @@ import LoadingScreen from '../shared/LoadingScreen'
 
 
 
+
 const Profile2 = (props) => {
 
   const nav = useNavigate()
@@ -78,12 +79,17 @@ const Profile2 = (props) => {
                   console.log(`user Id`,user)
                   handleClose()
               })
-              // Create a trigger Refresh in the parent component (wher it is rendered)
-              // That is the updates here are rendered in Show Profile
-              // So we need to build it in the parent
               .then(()=> setUpdated(prev=> !prev))
                   
      
+  }
+  const imgStyle= {
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+    maxHeight: '90rem',
+    minHeight: '90'
   }
 
 
@@ -92,33 +98,42 @@ const Profile2 = (props) => {
     return <LoadingScreen/>
 }
   return (
-    <div>
+    <>
+    <Card className="bg-dark text-white">
+  <Card.Img 
+    src={user.coverPicture}
+    alt="Card image" 
+    style={{ objectFit: 'cover', maxHeight: '90vh', minHeight:'90vh' }}
+  />
+  <Card.ImgOverlay>
+
+  <div style={{ display: 'flex', flexDirection: 'row', justifyContent:'center' }}>
       <Card>
-        User Profile 2
-        {props.user._id}
-        <Card.Img id='imagecover' variant="top" src={user.coverPicture} />
-      
-        <Card style={{ width: '18rem' }}>
+        
+        <Card style={{ width: '18rem'}}>
+        <Card.Body style={{textAligh: 'left'}}>
           <Card.Img variant="top" src={user.profilePicture} />
-          <Card.Body>
-            <Card.Title>{user.name}</Card.Title>
+          <h1 style={{color: 'black',  textAlign:'center' }}>{user.name}</h1>
             <Card.Text>
-              {user.description}
+             Profession:  {user.description}
             </Card.Text>
-          </Card.Body>
+          
           <ListGroup className="list-group-flush">
             <ListGroup.Item>Location: {user.city}</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-          </ListGroup>
-          <Card.Body>
-            <Link to={`/update/${user._id}`} >Update Details</Link> <br />
-            <Link to={`/profile`}>view Profile</Link>
+            <ListGroup.Item>Email: {user.email}</ListGroup.Item>
+            <ListGroup.Item>Profession: {user.description}</ListGroup.Item>
+            
+            <Link to='/' style={{textAlign: 'center'}}>View All Post</Link>
+            
+          </ListGroup >
           </Card.Body>
+          
         </Card>
-        <Button onClick={()=> setShow(true)}></Button>
+        <Button style={{backgroundColor: 'red'}} onClick={()=> setShow(true)}>Update Profile</Button>
       </Card>
 
+      
+    
 
 
 
@@ -138,6 +153,13 @@ const Profile2 = (props) => {
             </Modal>
 
     </div>
+  
+  </Card.ImgOverlay>
+</Card>
+
+
+    
+    </>
   )
 }
 

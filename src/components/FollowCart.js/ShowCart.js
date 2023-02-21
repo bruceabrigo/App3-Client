@@ -104,4 +104,3 @@ let peopleIFollowCards = fcart.followings.map((people) => (
 
 
 export default ShowCart
-

@@ -57,12 +57,12 @@ const NewPost = (props) => {
     const createCard = (
 		<Card className="mt-4">
 			<Card.Body>
-            <ContentForm
-                content={content}
-                handleChange={onChange}
-                handleSubmit={onSubmit}
-                user={user}
-            />
+                <ContentForm
+                    content={content}
+                    handleChange={onChange}
+                    handleSubmit={onSubmit}
+                    user={user}
+                />
 			</Card.Body>
 		</Card>
 	)
