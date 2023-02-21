@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import CommentForm from "./commentForm"
 
 const Comment = ({
@@ -26,6 +27,9 @@ const Comment = ({
   const canReply = Boolean(currentUserId)
   const canEdit = currentUserId === comment.userId && !timePassed
   const replyId = parentId ? parentId : comment.id
+  useEffect (() => {
+  }, )
+  console.log("hello" + replyId)
   const createdAt = new Date(comment.createdAt).toLocaleDateString()
   return (
     <div key={comment.id} className="comment">

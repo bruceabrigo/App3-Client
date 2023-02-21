@@ -10,11 +10,11 @@ import {
 
 
 
-const Comments = ({ currentUserId, commentsUrl }) => {
+const Comments = ({ currentUserId, commentsUrl, user }) => {
   const [backendComments, setBackendComments] = useState([])
   const [activeComment, setActiveComment] = useState(null)
   const rootComments = backendComments.filter(
-    (backendComment) => backendComment.parentId === null
+    (backendComment) => backendComment.parentId !== null
   )
 
   const getReplies = (commentId) => {
@@ -25,7 +25,7 @@ const Comments = ({ currentUserId, commentsUrl }) => {
 
   const addComment = (text, parentId) => {
     console.log("hello", text, parentId)
-    createCommentApi(text, parentId).then((comment) => {
+    createCommentApi(text, parentId, user).then((comment) => {
       setBackendComments([...backendComments, comment])
       setActiveComment(null)
     }) .catch(error => {

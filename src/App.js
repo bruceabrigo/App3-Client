@@ -87,6 +87,7 @@ const App = () => {
 				</Fragment>
 
 				<Comments 
+				user={user}
 				currentUserId="1"
 				commentsUrl="https://jsonplaceholder.typicode.com/comments"
 				 />
