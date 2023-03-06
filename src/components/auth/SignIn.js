@@ -32,7 +32,7 @@ const SignIn = (props) => {
 					variant: 'success',
 				})
 			)
-			.then(() => navigate('/view-profile'))
+			.then(() => navigate('/profile'))
 			.catch((error) => {
                 setEmail('')
                 setPassword('')
